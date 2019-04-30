@@ -6,7 +6,7 @@
  *  Date: 2019/4/8
  *  Time: 17:44
  */
-namespace Ftoken;
+namespace Kernel\Ftoken;
 
 class TokenConstant
 {

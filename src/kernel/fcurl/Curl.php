@@ -1,6 +1,6 @@
 <?php
-namespace FCurl;
-use FCurl\FCurlConstant;
+namespace Kernel\FCurl;
+use Kernel\FCurl\FCurlConstant;
 class Curl
 	{
         private $ssl = false;

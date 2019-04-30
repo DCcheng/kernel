@@ -3,11 +3,6 @@
   <component name="PhpIncludePathManager">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/composer" />
-      <path value="$PROJECT_DIR$/vendor/kernel/exception" />
-      <path value="$PROJECT_DIR$/vendor/ftoken/temp" />
-      <path value="$PROJECT_DIR$/vendor/workerman/workerman" />
-      <path value="$PROJECT_DIR$/vendor/workerman/phpsocket.io" />
-      <path value="$PROJECT_DIR$/vendor/workerman/channel" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="5.4.0" />

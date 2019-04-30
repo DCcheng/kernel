@@ -1,5 +1,5 @@
 <?php
-namespace Qrcode;
+namespace Kernel\Qrcode;
 use Kernel\Exception\FException;
 /*
  * PHP QR Code encoder

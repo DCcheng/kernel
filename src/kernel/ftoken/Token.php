@@ -14,9 +14,9 @@
  *  Time: 17:44
  */
 
-namespace Ftoken;
-use Ftoken\TokenConstant;
-use Ftoken\TokenException;
+namespace Kernel\Ftoken;;
+use Kernel\Ftoken\TokenConstant;
+use Kernel\Ftoken\TokenException;
 class Token
 {
     private $param = "Token";
@@ -58,11 +58,12 @@ class Token
      */
     private function createToken($payload){
         if(is_array($payload) && count($payload) > 0) {
-            $payload = json_encode($this->setPayload($payload));
+            $time = time() + $this->exp;
+            $payload = json_encode(array_merge($payload,array("exp"=>$time)));
             $token = $this->getSign(base64_encode($payload));
-            $this->file = __DIR__ . "/" . TokenConstant::PATH . "/" . $token;
+            $this->file = __DIR__ . "/temp/" . $token;
             file_put_contents($this->file, $payload);
-            return $token;
+            return array($token,$time);
         }else{
             throw new TokenException( TokenConstant::PAYLOAD_NOT_ARRAY_MESSAGE,TokenConstant::PAYLOAD_NOT_ARRAY_CODE);
         }
@@ -71,7 +72,7 @@ class Token
     /**
      * [validateTokenReturnArray 用于验证Token的有效性]
      */
-    private function validateToken(){
+    public function validateToken(){
         if($this->isValidateHeader) {
             if (!isset($_SERVER["HTTP_AUTHORIZATION"])) {
                 throw new TokenException( TokenConstant::TOKEN_LACK_MESSAGE,TokenConstant::TOKEN_LACK_CODE);
@@ -83,11 +84,12 @@ class Token
             }
             $token = isset($_GET[$this->param])?$_GET[$this->param]:$_POST[$this->param];
         }
-        $this->file = __DIR__."/".TokenConstant::PATH."/".$token;
+        $this->file = __DIR__ . "/temp/" .$token;
         if(file_exists($this->file) && $token != ""){
             $data = json_decode(file_get_contents($this->file),true);
             if($data["exp"] > time()){
-                $this->userInfoArr = $data["data"];
+                $this->userInfoArr = $data;
+                return $this->userInfoArr;
             }else{
                 unlink($this->file);
                 throw new TokenException(TokenConstant::TOKEN_EXPIRE_MESSAGE,TokenConstant::TOKEN_EXPIRE_CODE);
@@ -102,17 +104,24 @@ class Token
      * @param  [array] $payload [需要记录的信息，一般存储用户ID等]
      * @return [array]          [接口返回数据，ret：状态字段，0-失败，1-成功。msg：操作返回信息描述。data：包含的数据]
      */
-    public function create($payload){
-        return $this->createToken($payload);
+    public static function create($payload){
+        $tokenObject = new Token;
+        return $tokenObject->createToken($payload);
+    }
+
+    public static function validate(){
+        $tokenObject = new Token;
+        return $tokenObject->validateToken();
     }
 
     /**
      * [invalidate 销毁令牌信息]
      * @return [array]        [接口返回数据，ret：状态字段，0-失败，1-成功。msg：操作返回信息描述。data：包含的数据]
      */
-    public function invalidate(){
-        $this->validateToken();
-        unlink($this->file);
+    public static function invalidate(){
+        $tokenObject = new Token;
+        $tokenObject->validateToken();
+        unlink($tokenObject->file);
     }
 
     /**
@@ -120,10 +129,10 @@ class Token
      * @param  [string] $token [用户访问令牌]
      * @return [array]        [接口返回数据，ret：状态字段，0-失败，1-成功。msg：操作返回信息描述。data：包含的数据]
      */
-    public function refresh(){
-        $this->validateToken();
-        unlink($this->file);
-        return $this->createToken($this->userInfoArr);
+    public static function refresh(){
+        $tokenObject = new Token;
+        unlink($tokenObject->file);
+        return $tokenObject->createToken($tokenObject->userInfoArr);
     }
 
     /**
@@ -136,16 +145,5 @@ class Token
         $ss = $c(104).$c(97).$c(115).$c(104);
         $sign = base64_encode($ss(TokenConstant::ENCRYPTION_METHOD,$str.$this->key));
         return $sign;
-    }
-
-    /**
-     * [setPayload 设置Token有效时间]
-     * @param [array] $payload [传入消息体数组]
-     * @return [array] $payload     [加入有效时间的消息体数组]
-     */
-    private function setPayload($payload){
-        $time = time() + $this->exp;
-        $payload = array_merge($payload,array("exp"=>$time));
-        return $payload;
     }
 }

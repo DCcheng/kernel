@@ -8,7 +8,7 @@
  */
 
 
-namespace Ftoken;
+namespace Kernel\Ftoken;
 use Kernel\Exception\FException;
 
 class TokenException extends FException{}

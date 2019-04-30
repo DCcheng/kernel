@@ -8,7 +8,7 @@
  */
 
 
-namespace FCurl;
+namespace Kernel\FCurl;
 class CurlConstant
 {
 

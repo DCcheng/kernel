@@ -6,10 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Kernel\\' => array($vendorDir . '/kernel'),
-    'Qrcode\\'=> array($vendorDir . '/qrcode'),
-    'Fcurl\\' => array($vendorDir . '/fcurl'),
-    'Ftoken\\' => array($vendorDir . '/ftoken'),
-    'PHPSocketIO\\' => array($vendorDir . '/workerman/phpsocket.io/src'),
-    'Workerman\\' => array($vendorDir . '/workerman/workerman'),
+    'Kernel' => array($baseDir . '/src/kernel'),
 );

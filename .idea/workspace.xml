@@ -1,114 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c453c7ee-154d-49a2-a226-e86bc8962901" name="Default Changelist" comment="创建代码版本管理">
-      <change afterPath="$PROJECT_DIR$/.idea/F.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/autoload.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/composer/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/fcurl/Curl.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/fcurl/CurlConstant.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/ftoken/Token.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/ftoken/TokenConstant.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/ftoken/TokenException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/ftoken/temp/MWUxNWI2MDAxNTY4MGMyMDA4N2E1Y2ExNmY3Zjg1ZjU3NTQwMDFjMTQ4NmVlZjAxOWM0OWVjNDk4NGMyZDlmOA==" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/kernel/exception/FException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/qrcode/QRcode.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/channel/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/channel/composer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/channel/src/Client.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/channel/src/Server.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/channel/test/server.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/composer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/docs/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/docs/zh/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/examples/chat/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/examples/chat/public/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/examples/chat/public/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/examples/chat/public/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/examples/chat/public/socket.io-client/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/examples/chat/public/socket.io-client/lib/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/examples/chat/public/socket.io-client/lib/manager.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/examples/chat/public/socket.io-client/lib/on.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/examples/chat/public/socket.io-client/lib/socket.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/examples/chat/public/socket.io-client/lib/url.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/examples/chat/public/socket.io-client/socket.io.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/examples/chat/public/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/examples/chat/start.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/examples/chat/start_io.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/examples/chat/start_web.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/src/ChannelAdapter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/src/Client.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/src/Debug.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/src/DefaultAdapter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/src/Engine/Engine.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/src/Engine/Parser.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/src/Engine/Protocols/Http/Request.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/src/Engine/Protocols/Http/Response.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/src/Engine/Protocols/SocketIO.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/src/Engine/Protocols/WebSocket.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/src/Engine/Protocols/WebSocket/RFC6455.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/src/Engine/Socket.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/src/Engine/Transport.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/src/Engine/Transports/Polling.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/src/Engine/Transports/PollingJsonp.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/src/Engine/Transports/PollingXHR.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/src/Engine/Transports/WebSocket.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/src/Event/Emitter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/src/Nsp.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/src/Parser/Decoder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/src/Parser/Encoder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/src/Parser/Parser.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/src/Socket.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/src/SocketIO.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/src/autoload.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/phpsocket.io/tests/emitter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/workerman.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/workerman/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/workerman/Autoloader.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/workerman/Connection/AsyncTcpConnection.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/workerman/Connection/AsyncUdpConnection.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/workerman/Connection/ConnectionInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/workerman/Connection/TcpConnection.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/workerman/Connection/UdpConnection.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/workerman/Events/Ev.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/workerman/Events/Event.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/workerman/Events/EventInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/workerman/Events/Libevent.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/workerman/Events/React/Base.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/workerman/Events/React/ExtEventLoop.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/workerman/Events/React/ExtLibEventLoop.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/workerman/Events/React/StreamSelectLoop.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/workerman/Events/Select.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/workerman/Events/Swoole.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/workerman/Lib/Constants.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/workerman/Lib/Timer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/workerman/MIT-LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/workerman/Protocols/Frame.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/workerman/Protocols/Http.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/workerman/Protocols/Http/mime.types" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/workerman/Protocols/ProtocolInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/workerman/Protocols/Text.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/workerman/Protocols/Websocket.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/workerman/Protocols/Ws.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/workerman/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/workerman/WebServer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/workerman/Worker.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/workerman/workerman/composer.json" afterDir="false" />
+    <list default="true" id="94103d3a-9ef7-43b7-89fc-04012b0d0ef5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -116,32 +10,75 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
-    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/composer.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="14" column="17" lean-forward="true" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="19">
+              <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/composer/autoload_psr4.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/composer/installed.json">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/composer/autoload_namespaces.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/composer/autoload_classmap.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
-    <option name="PREVIOUS_COMMIT_AUTHORS">
-      <list>
-        <option value="DCcheng" />
-      </list>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="SIGN_OFF_COMMIT" value="true" />
     <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration">
-    <include_path>
-      <path value="$PROJECT_DIR$/vendor/composer" />
-      <path value="$PROJECT_DIR$/vendor/kernel/exception" />
-      <path value="$PROJECT_DIR$/vendor/ftoken/temp" />
-      <path value="$PROJECT_DIR$/vendor/workerman/workerman" />
-      <path value="$PROJECT_DIR$/vendor/workerman/phpsocket.io" />
-      <path value="$PROJECT_DIR$/vendor/workerman/channel" />
-    </include_path>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/kernel.iml" />
+        <option value="$PROJECT_DIR$/.idea/misc.xml" />
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+        <option value="$PROJECT_DIR$/.idea/modules.xml" />
+      </list>
+    </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="3" />
-    <option name="width" value="1346" />
+    <option name="x" value="21" />
+    <option name="y" value="20" />
+    <option name="width" value="1352" />
     <option name="height" value="728" />
   </component>
   <component name="ProjectView">
@@ -154,8 +91,8 @@
         <subPane>
           <expand>
             <path>
-              <item name="F" type="b2602c69:ProjectViewProjectNode" />
-              <item name="F" type="462c0819:PsiDirectoryNode" />
+              <item name="kernel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kernel" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -164,10 +101,8 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -188,28 +123,35 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c453c7ee-154d-49a2-a226-e86bc8962901" name="Default Changelist" comment="" />
-      <created>1554803114754</created>
+      <changelist id="94103d3a-9ef7-43b7-89fc-04012b0d0ef5" name="Default Changelist" comment="" />
+      <created>1556594521191</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1554803114754</updated>
-      <workItem from="1554803116938" duration="862000" />
+      <updated>1556594521191</updated>
+      <workItem from="1556594522357" duration="1661000" />
     </task>
+    <task id="LOCAL-00001" summary="V0.1 TEST">
+      <created>1556595305495</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1556595305495</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="862000" />
+    <option name="totallyTimeSpent" value="1661000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24281392" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24962178" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info active="true" anchor="bottom" id="Messages" visible="true" weight="0.3289689" />
       <window_info anchor="bottom" id="Terminal" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -229,7 +171,35 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="创建代码版本管理" />
-    <option name="LAST_COMMIT_MESSAGE" value="创建代码版本管理" />
+    <MESSAGE value="V0.1 TEST" />
+    <option name="LAST_COMMIT_MESSAGE" value="V0.1 TEST" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/vendor/composer/autoload_psr4.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/composer/installed.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/composer/autoload_namespaces.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/composer/autoload_classmap.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="17" lean-forward="true" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>
