@@ -42,7 +42,7 @@ class Serial
 
     public function get($filename = "Identify"){
         $this->init($filename);
-        $data = include_once($this->file);
+        $data = include($this->file);
         if($this->modelDate) {
             if ($data["prefix"] !== date($this->model)) {
                 $this->str = $this->setStr();

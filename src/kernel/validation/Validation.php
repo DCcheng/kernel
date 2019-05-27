@@ -34,6 +34,12 @@ class Validation
                 case 'number':
                     $validationObject->validateNumber($r);
                     break;
+                case 'array':
+                    $validationObject->validateArray($r);
+                    break;
+                default:
+                    throw new Exception("不能正确验证".$r[1]."数据格式",self::ErrorCode);
+                    break;
             }
         }
         if(count($validationObject->errorArr) > 0){
@@ -81,6 +87,19 @@ class Validation
             }
         }else{
             if(isset($this->params[$r[0]]) && !is_numeric($this->params[$r[0]]) && !isset($this->errorArr[$r[0]]))
+                $this->errorArr[$r[0]] = str_replace("{attribute}",$r[0],$message);
+        }
+    }
+
+    public function validateArray($r){
+        $message = isset($r["message"])?$r["message"]:"{attribute}必须为数组类型";
+        if(is_array($r[0])){
+            foreach ($r[0] as $key => $value){
+                if(isset($this->params[$value]) && !is_array($this->params[$value]) && !isset($this->errorArr[$value]))
+                    $this->errorArr[$value] = str_replace("{attribute}",$value,$message);
+            }
+        }else{
+            if(isset($this->params[$r[0]]) && !is_array($this->params[$r[0]]) && !isset($this->errorArr[$r[0]]))
                 $this->errorArr[$r[0]] = str_replace("{attribute}",$r[0],$message);
         }
     }

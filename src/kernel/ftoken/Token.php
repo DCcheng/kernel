@@ -30,7 +30,7 @@ class Token
      * @var int
      * TOKEN有效时间
      */
-    private $exp = 3600;
+    private $exp = 5184000;
 
     /**
      * @var string
