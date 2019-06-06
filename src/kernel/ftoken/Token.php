@@ -17,7 +17,6 @@
 namespace Kernel\Ftoken;;
 use Kernel\Ftoken\TokenConstant;
 use Kernel\Ftoken\TokenException;
-
 class Token
 {
     private $param = "Token";
@@ -62,12 +61,7 @@ class Token
             $time = time() + $this->exp;
             $payload = json_encode(array_merge($payload,array("exp"=>$time)));
             $token = $this->getSign(base64_encode($payload));
-            $dir = __DIR__ . "/temp";
-            if(!is_dir($dir)) {
-                mkdir($dir,666);
-            }
-
-            $this->file = $dir . "/" . $token;
+            $this->file = __DIR__ . "/temp/" . $token;
             file_put_contents($this->file, $payload);
             return array($token,$time);
         }else{
