@@ -12,41 +12,35 @@ use Exception;
 class Validation
 {
     public $params;
-    public $errorArr = array();
+    private $errorArr = array();
     const ErrorCode = 0;
 
-
-    public function __construct($params)
-    {
+    public function validate($params,$rules,$is_html = true){
         $this->params = $params;
-    }
-
-    public static function validate($params,$rules,$is_html = true){
-        $validationObject = new Validation($params);
         foreach ($rules as $k => $r){
             switch ($r[1]){
                 case 'required':
-                    $validationObject->validateRequired($r);
+                    $this->validateRequired($r);
                     break;
                 case 'string':
-                    $validationObject->validateString($r);
+                    $this->validateString($r);
                     break;
                 case 'number':
-                    $validationObject->validateNumber($r);
+                    $this->validateNumber($r);
                     break;
                 case 'array':
-                    $validationObject->validateArray($r);
+                    $this->validateArray($r);
                     break;
                 default:
                     throw new Exception("不能正确验证".$r[1]."数据格式",self::ErrorCode);
                     break;
             }
         }
-        if(count($validationObject->errorArr) > 0){
+        if(count($this->errorArr) > 0){
             if($is_html) {
-                $errorStr = implode("<br/>", $validationObject->errorArr);
+                $errorStr = implode("<br/>", $this->errorArr);
             }else{
-                $errorStr = implode("\n\t", $validationObject->errorArr);
+                $errorStr = implode("\n\t", $this->errorArr);
             }
             throw new Exception($errorStr,self::ErrorCode);
         }

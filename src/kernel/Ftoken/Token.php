@@ -16,21 +16,22 @@
 
 namespace Kernel\Ftoken;;
 use Kernel\Ftoken\TokenConstant;
-use Kernel\Ftoken\TokenException;
+use Exception;
+
 class Token
 {
-    private $param = "Token";
+    public $param = "Token";
     /**
      * @var string
      * TOKEN加密私钥
      */
-    private $key = "gZ7v81FWTdWc0vS!";
+    public $key = "gZ7v81FWTdWc0vS!";
 
     /**
      * @var int
      * TOKEN有效时间
      */
-    private $exp = 5184000;
+    public $exp = 5184000;
 
     /**
      * @var string
@@ -65,22 +66,22 @@ class Token
             file_put_contents($this->file, $payload);
             return array($token,$time);
         }else{
-            throw new TokenException( TokenConstant::PAYLOAD_NOT_ARRAY_MESSAGE,TokenConstant::PAYLOAD_NOT_ARRAY_CODE);
+            throw new Exception( TokenConstant::PAYLOAD_NOT_ARRAY_MESSAGE,TokenConstant::PAYLOAD_NOT_ARRAY_CODE);
         }
     }
 
     /**
      * [validateTokenReturnArray 用于验证Token的有效性]
      */
-    public function validateToken(){
+    private function validateToken(){
         if($this->isValidateHeader) {
             if (!isset($_SERVER["HTTP_AUTHORIZATION"])) {
-                throw new TokenException( TokenConstant::TOKEN_LACK_MESSAGE,TokenConstant::TOKEN_LACK_CODE);
+                throw new Exception( TokenConstant::TOKEN_LACK_MESSAGE,TokenConstant::TOKEN_LACK_CODE);
             }
             $token = $_SERVER["HTTP_AUTHORIZATION"];
         }else{
             if(!isset($_GET[$this->param]) && !isset($_POST[$this->param])){
-                throw new TokenException( TokenConstant::TOKEN_LACK_MESSAGE,TokenConstant::TOKEN_LACK_CODE);
+                throw new Exception( TokenConstant::TOKEN_LACK_MESSAGE,TokenConstant::TOKEN_LACK_CODE);
             }
             $token = isset($_GET[$this->param])?$_GET[$this->param]:$_POST[$this->param];
         }
@@ -92,10 +93,10 @@ class Token
                 return $this->userInfoArr;
             }else{
                 unlink($this->file);
-                throw new TokenException(TokenConstant::TOKEN_EXPIRE_MESSAGE,TokenConstant::TOKEN_EXPIRE_CODE);
+                throw new Exception(TokenConstant::TOKEN_EXPIRE_MESSAGE,TokenConstant::TOKEN_EXPIRE_CODE);
             }
         }else{
-            throw new TokenException(TokenConstant::TOKEN_INVALID_MESSAGE,TokenConstant::TOKEN_INVALID_CODE);
+            throw new Exception(TokenConstant::TOKEN_INVALID_MESSAGE,TokenConstant::TOKEN_INVALID_CODE);
         }
     }
 
@@ -104,24 +105,21 @@ class Token
      * @param  [array] $payload [需要记录的信息，一般存储用户ID等]
      * @return [array]          [接口返回数据，ret：状态字段，0-失败，1-成功。msg：操作返回信息描述。data：包含的数据]
      */
-    public static function create($payload){
-        $tokenObject = new Token;
-        return $tokenObject->createToken($payload);
+    public function create($payload){
+        return $this->createToken($payload);
     }
 
-    public static function validate(){
-        $tokenObject = new Token;
-        return $tokenObject->validateToken();
+    public function validate(){
+        return $this->validateToken();
     }
 
     /**
      * [invalidate 销毁令牌信息]
      * @return [array]        [接口返回数据，ret：状态字段，0-失败，1-成功。msg：操作返回信息描述。data：包含的数据]
      */
-    public static function invalidate(){
-        $tokenObject = new Token;
-        $tokenObject->validateToken();
-        unlink($tokenObject->file);
+    public function invalidate(){
+        $this->validateToken();
+        unlink($this->file);
     }
 
     /**
@@ -129,10 +127,9 @@ class Token
      * @param  [string] $token [用户访问令牌]
      * @return [array]        [接口返回数据，ret：状态字段，0-失败，1-成功。msg：操作返回信息描述。data：包含的数据]
      */
-    public static function refresh(){
-        $tokenObject = new Token;
-        unlink($tokenObject->file);
-        return $tokenObject->createToken($tokenObject->userInfoArr);
+    public function refresh(){
+        unlink($this->file);
+        return $this->createToken($this->userInfoArr);
     }
 
     /**

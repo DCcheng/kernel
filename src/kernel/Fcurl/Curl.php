@@ -1,9 +1,8 @@
 <?php
-namespace Kernel\FCurl;
-use Kernel\FCurl\FCurlConstant;
+namespace Kernel\Fcurl;
 class Curl
 	{
-        private $ssl = false;
+        public $ssl = false;
 		//设置请求头
         public function __set($name, $value)
         {

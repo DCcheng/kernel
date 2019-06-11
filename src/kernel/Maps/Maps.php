@@ -10,32 +10,29 @@
 
 namespace Kernel\Maps;
 
-use Kernel\FCurl\Curl;
+use Kernel\Fcurl\Curl;
 
 class Maps
 {
     public $key = "3cc53937e45ed9ab6f2419dc4e684950";
     public $curl;
 
-    public static function init()
+    public function __construct(Curl $curl)
     {
-        $maps = new Maps();
-        $maps->curl = new Curl();
-        $maps->curl->ssl = true;
-        return $maps;
+        $this->curl = $curl;
+        $this->curl->ssl = true;
     }
 
-    public static function getGps($address,$city = null)
+    public function getGps($address,$city = null)
     {
-        $maps = self::init();
         $params = [
-            "key"=>$maps->key,
+            "key"=>$this->key,
             "address"=>$address
         ];
         if($city != null)
             $params["city"] = $city;
-        $url = $maps->setUrl("https://restapi.amap.com/v3/geocode/geo?parameters",$params);
-        $result = $maps->curl->get($url);
+        $url = $this->setUrl("https://restapi.amap.com/v3/geocode/geo?parameters",$params);
+        $result = $this->curl->get($url);
         $json = json_decode($result,true);
         if($json["status"] == 1 && isset($json['geocodes'][0]['location'])){
             return explode(",",$json['geocodes'][0]['location']);

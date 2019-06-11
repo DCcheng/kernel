@@ -8,13 +8,14 @@
  */
 
 
-namespace Kernel\acg;
+namespace Kernel\Acg;
 
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Exception;
 
-class AcgLaravel5
+class AcgLaravel5 implements AcgInterface
 {
     public $table;
     public $modelNamespace = "App\\Models";
@@ -49,7 +50,7 @@ class AcgLaravel5
             $this->setController();
             $this->setRequest();
             $this->setModel();
-        }catch (\Exception $exception){
+        }catch (Exception $exception){
             if(file_exists($this->getPath($this->controllerNamespace)."\\".$this->controllerName.".php")){
                 unlink($this->getPath($this->controllerNamespace)."\\".$this->controllerName.".php");
             }
@@ -59,7 +60,7 @@ class AcgLaravel5
             if(file_exists($this->getPath($this->requestNamespace)."\\".$this->requestName.".php")){
                 unlink($this->getPath($this->requestNamespace)."\\".$this->requestName.".php");
             }
-            throw new Exception($e->getMessage());
+            throw new Exception($exception->getMessage());
         }
     }
 

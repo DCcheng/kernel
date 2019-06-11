@@ -1,6 +1,6 @@
 <?php
 namespace Kernel\Qrcode;
-use Kernel\Exception\FException;
+use Exception;
 /*
  * PHP QR Code encoder
  *
@@ -1058,7 +1058,7 @@ use Kernel\Exception\FException;
             }
         
             if(!QRinput::check($mode, $size, $setData)) {
-                throw new FException('Error m:'.$mode.',s:'.$size.',d:'.join(',',$setData));
+                throw new Exception('Error m:'.$mode.',s:'.$size.',d:'.join(',',$setData));
                 return null;
             }
             
@@ -1099,7 +1099,7 @@ use Kernel\Exception\FException;
                 $this->bstream = $bs;
                 return 0;
                 
-            } catch (FException $e) {
+            } catch (Exception $e) {
                 return -1;
             }
         }
@@ -1129,7 +1129,7 @@ use Kernel\Exception\FException;
                 $this->bstream = $bs;
                 return 0;
             
-            } catch (FException $e) {
+            } catch (Exception $e) {
                 return -1;
             }
         }
@@ -1150,7 +1150,7 @@ use Kernel\Exception\FException;
                 $this->bstream = $bs;
                 return 0;
             
-            } catch (FException $e) {
+            } catch (Exception $e) {
                 return -1;
             }
         }
@@ -1182,7 +1182,7 @@ use Kernel\Exception\FException;
                 $this->bstream = $bs;
                 return 0;
             
-            } catch (FException $e) {
+            } catch (Exception $e) {
                 return -1;
             }
         }
@@ -1201,7 +1201,7 @@ use Kernel\Exception\FException;
                 $this->bstream = $bs;
                 return 0;
             
-            } catch (FException $e) {
+            } catch (Exception $e) {
                 return -1;
             }
         }
@@ -1277,7 +1277,7 @@ use Kernel\Exception\FException;
 
                 return $this->bstream->size();
             
-            } catch (FException $e) {
+            } catch (Exception $e) {
                 return -1;
             }
         }
@@ -1296,7 +1296,7 @@ use Kernel\Exception\FException;
         public function __construct($version = 0, $level = QR_ECLEVEL_L)
         {
             if ($version < 0 || $version > QRSPEC_VERSION_MAX || $level > QR_ECLEVEL_H) {
-                throw new FException('Invalid version no');
+                throw new Exception('Invalid version no');
                 return NULL;
             }
             
@@ -1314,7 +1314,7 @@ use Kernel\Exception\FException;
         public function setVersion($version)
         {
             if($version < 0 || $version > QRSPEC_VERSION_MAX) {
-                throw new FException('Invalid version no');
+                throw new Exception('Invalid version no');
                 return -1;
             }
 
@@ -1333,7 +1333,7 @@ use Kernel\Exception\FException;
         public function setErrorCorrectionLevel($level)
         {
             if($level > QR_ECLEVEL_H) {
-                throw new FException('Invalid ECLEVEL');
+                throw new Exception('Invalid ECLEVEL');
                 return -1;
             }
 
@@ -1355,7 +1355,7 @@ use Kernel\Exception\FException;
                 $entry = new QRinputItem($mode, $size, $data);
                 $this->items[] = $entry;
                 return 0;
-            } catch (FException $e) {
+            } catch (Exception $e) {
                 return -1;
             }
         }
@@ -1365,11 +1365,11 @@ use Kernel\Exception\FException;
         public function insertStructuredAppendHeader($size, $index, $parity)
         {
             if( $size > MAX_STRUCTURED_SYMBOLS ) {
-                throw new FException('insertStructuredAppendHeader wrong size');
+                throw new Exception('insertStructuredAppendHeader wrong size');
             }
             
             if( $index <= 0 || $index > MAX_STRUCTURED_SYMBOLS ) {
-                throw new FException('insertStructuredAppendHeader wrong index');
+                throw new Exception('insertStructuredAppendHeader wrong index');
             }
 
             $buf = array($size, $index, $parity);
@@ -1378,7 +1378,7 @@ use Kernel\Exception\FException;
                 $entry = new QRinputItem(QR_MODE_STRUCTURE, 3, buf);
                 array_unshift($this->items, $entry);
                 return 0;
-            } catch (FException $e) {
+            } catch (Exception $e) {
                 return -1;
             }
         }
@@ -1633,7 +1633,7 @@ use Kernel\Exception\FException;
                     
                 $ver = QRspec::getMinimumVersion((int)(($bits + 7) / 8), $this->level);
                 if($ver < 0) {
-                    throw new FException('WRONG VERSION');
+                    throw new Exception('WRONG VERSION');
                     return -1;
                 } else if($ver > $this->getVersion()) {
                     $this->setVersion($ver);
@@ -2236,7 +2236,7 @@ use Kernel\Exception\FException;
         public static function splitStringToQRinput($string, QRinput $input, $modeHint, $casesensitive = true)
         {
             if(is_null($string) || $string == '\0' || $string == '') {
-                throw new FException('empty string!!!');
+                throw new Exception('empty string!!!');
             }
 
             $split = new QRsplit($string, $input, $modeHint);
@@ -2871,7 +2871,7 @@ use Kernel\Exception\FException;
             
             $this->datacode = $input->getByteStream();
             if(is_null($this->datacode)) {
-                throw new FException('null imput string');
+                throw new Exception('null imput string');
             }
 
             QRspec::getEccSpec($input->getVersion(), $input->getErrorCorrectionLevel(), $spec);
@@ -2885,7 +2885,7 @@ use Kernel\Exception\FException;
             
             $ret = $this->init($spec);
             if($ret < 0) {
-                throw new FException('block alloc error');
+                throw new Exception('block alloc error');
                 return null;
             }
 
@@ -2972,10 +2972,10 @@ use Kernel\Exception\FException;
         public function encodeMask(QRinput $input, $mask)
         {
             if($input->getVersion() < 0 || $input->getVersion() > QRSPEC_VERSION_MAX) {
-                throw new FException('wrong version');
+                throw new Exception('wrong version');
             }
             if($input->getErrorCorrectionLevel() > QR_ECLEVEL_H) {
-                throw new FException('wrong level');
+                throw new Exception('wrong level');
             }
 
             $raw = new QRrawcode($input);
@@ -3053,7 +3053,7 @@ use Kernel\Exception\FException;
         public function encodeString8bit($string, $version, $level)
         {
             if(string == NULL) {
-                throw new FException('empty string!');
+                throw new Exception('empty string!');
                 return NULL;
             }
 
@@ -3073,7 +3073,7 @@ use Kernel\Exception\FException;
         {
 
             if($hint != QR_MODE_8 && $hint != QR_MODE_KANJI) {
-                throw new FException('bad hint');
+                throw new Exception('bad hint');
                 return NULL;
             }
 
@@ -3302,7 +3302,7 @@ use Kernel\Exception\FException;
                 
                 QRimage::png($tab, $outfile, min(max(1, $this->size), $maxSize), $this->margin,$saveandprint);
             
-            } catch (FException $e) {
+            } catch (Exception $e) {
             
                 QRtools::log($outfile, $e->getMessage());
             

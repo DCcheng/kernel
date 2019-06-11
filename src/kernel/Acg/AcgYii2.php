@@ -8,14 +8,14 @@
  */
 
 
-namespace Kernel\acg;
+namespace Kernel\Acg;
 use Yii;
 use yii\base\NotSupportedException;
 use yii\db\Schema;
 use yii\helpers\Inflector;
 use Exception;
 
-class AcgYii2
+class AcgYii2 implements AcgInterface
 {
     public $table;
     public $modelNamespace = "common\\models";
