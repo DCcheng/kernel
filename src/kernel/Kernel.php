@@ -15,6 +15,7 @@
 namespace Kernel;
 
 use Kernel\Container;
+use Exception;
 
 class Kernel
 {
@@ -35,13 +36,21 @@ class Kernel
         }
     }
 
-//    public function __get($name)
-//    {
-//        if(is_null(self::$app)){
-//           throw new Exception("Please initialize the kernel program and you can use 'Kernel::init()' to initialize the program");
-//        }
-//        return $this->$name;
-//    }
+    public function __call($name, $arguments)
+    {
+        if(is_null(self::$app)){
+           throw new Exception("Please initialize the kernel program and you can use 'Kernel::init()' to initialize the program");
+        }
+        return $this->$name;
+    }
+
+    public static function __callStatic($name, $arguments)
+    {
+        if(is_null(self::$app)){
+            throw new Exception("Please initialize the kernel program and you can use 'Kernel::init()' to initialize the program");
+        }
+        return self::$app->$name;
+    }
 
     public static function init($arr = [])
     {
