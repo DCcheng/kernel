@@ -110,7 +110,8 @@ class Kernel
             "maps" => \Kernel\Maps\Maps::class,
             "serial" => \Kernel\Serial\Serial::class,
             "acg" => \Kernel\Acg\AcgLaravel5::class,
-            "qrcode" => \Kernel\Qrcode\QRcode::class
+            "qrcode" => \Kernel\Qrcode\QRcode::class,
+            "pdf"=>\Kernel\Pdf\PdfConverterForOpenOffice::class
         ];
     }
 }
