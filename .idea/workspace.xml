@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94103d3a-9ef7-43b7-89fc-04012b0d0ef5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/kernel/Pdf/PdfConverterForLibreOffice.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kernel/Pdf/PdfConverterForOpenOffice.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kernel/Pdf/PdfConverterInterface.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/kernel/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kernel/Kernel.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,6 +16,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/kernel/Kernel.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="371">
+              <caret line="113" column="57" selection-start-line="113" selection-start-column="57" selection-end-line="113" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../phpinfo.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -41,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/kernel/Pdf/PdfConverterForLibreOffice.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="18" column="79" lean-forward="true" selection-start-line="18" selection-start-column="79" selection-end-line="18" selection-end-column="79" />
+            <state relative-caret-position="152">
+              <caret line="14" column="32" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -55,15 +60,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="171">
               <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/composer.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -159,11 +155,11 @@
         <option value="$PROJECT_DIR$/../vue-webpack-simple/index.html" />
         <option value="$PROJECT_DIR$/src/kernel/Pdf/PdfConverterForOpenoffice.php" />
         <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/src/kernel/Kernel.php" />
         <option value="$PROJECT_DIR$/../phpinfo.php" />
         <option value="$PROJECT_DIR$/src/kernel/Pdf/PdfConverterInterface.php" />
         <option value="$PROJECT_DIR$/src/kernel/Pdf/PdfConverterForOpenOffice.php" />
         <option value="$PROJECT_DIR$/src/kernel/Pdf/PdfConverterForLibreOffice.php" />
+        <option value="$PROJECT_DIR$/src/kernel/Kernel.php" />
       </list>
     </option>
   </component>
@@ -262,7 +258,7 @@
       <workItem from="1560299396377" duration="10796000" />
       <workItem from="1560384994789" duration="1463000" />
       <workItem from="1561016234893" duration="1535000" />
-      <workItem from="1561077296172" duration="1565000" />
+      <workItem from="1561077296172" duration="4092000" />
     </task>
     <task id="LOCAL-00001" summary="V0.1 TEST">
       <created>1556595305495</created>
@@ -376,14 +372,29 @@
       <option name="project" value="LOCAL" />
       <updated>1560323742487</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="V0.1.8">
+      <created>1561085471144</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1561085471144</updated>
+    </task>
+    <task id="LOCAL-00018" summary="V0.1.9">
+      <created>1561093619647</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1561093619647</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34406000" />
+    <option name="totallyTimeSpent" value="36933000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24962178" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -419,7 +430,8 @@
     <MESSAGE value="V0.1.6" />
     <MESSAGE value="V0.1.7" />
     <MESSAGE value="V0.1.8" />
-    <option name="LAST_COMMIT_MESSAGE" value="V0.1.8" />
+    <MESSAGE value="V0.1.9" />
+    <option name="LAST_COMMIT_MESSAGE" value="V0.1.9" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
@@ -527,13 +539,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/kernel/Kernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1938">
-          <caret line="113" column="16" selection-start-line="113" selection-start-column="13" selection-end-line="113" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../vue-webpack-simple/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
@@ -615,8 +620,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/kernel/Pdf/PdfConverterForLibreOffice.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="18" column="79" lean-forward="true" selection-start-line="18" selection-start-column="79" selection-end-line="18" selection-end-column="79" />
+        <state relative-caret-position="152">
+          <caret line="14" column="32" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kernel/Kernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="113" column="57" selection-start-line="113" selection-start-column="57" selection-end-line="113" selection-end-column="57" />
         </state>
       </provider>
     </entry>
