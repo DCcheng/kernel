@@ -19,7 +19,7 @@ class PdfConverterForLibreOffice implements PdfConverterInterface
         $arr = explode("/",$export);
         array_pop($arr);
         $path = implode("/",$arr);
-        exec("PATH=/usr/bin libreoffice  --invisible --convert-to pdf  --outdir ".$path ." ".$source);
+        exec("PATH=/usr/bin libreoffice  --invisible --convert-to pdf  --outdir ".$path ." ".$source. " > /dev/null &2>1&");
 //        exec("PATH=/usr/bin unoconv -f pdf " . $source . " > /dev/null &2>1&");
     }
 }
