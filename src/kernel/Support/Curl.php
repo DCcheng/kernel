@@ -1,5 +1,5 @@
 <?php
-namespace Kernel\Fcurl;
+namespace Kernel\Support;
 class Curl
 	{
         public $ssl = false;
@@ -29,12 +29,12 @@ class Curl
 
 			$ch = curl_init ();
 			curl_setopt ( $ch, CURLOPT_URL, $url );
-			
+
 			if($this->ssl){
 				curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0); // 对认证证书来源的检查
     			curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0); // 从证书中检查SSL加密算法是否存在
     		}
-		    
+
 		    // curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']); // 模拟用户使用的浏览器
 		    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1); // 使用自动跳转
 		    curl_setopt($ch, CURLOPT_AUTOREFERER, 1); // 自动设置Referer
@@ -43,7 +43,7 @@ class Curl
 		    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); // 获取的信息以文件流的形式
 
 			if(is_array($header)&&count($header) > 0){
-				curl_setopt($ch, CURLOPT_HTTPHEADER, $header); //设置头信息的地方 
+				curl_setopt($ch, CURLOPT_HTTPHEADER, $header); //设置头信息的地方
 			}
 
 			if($method == "post"){

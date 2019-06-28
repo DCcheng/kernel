@@ -8,9 +8,9 @@
  */
 
 
-namespace Kernel\Maps;
+namespace Kernel\Support;
 
-use Kernel\Fcurl\Curl;
+use Kernel\Support\Curl;
 
 class Maps
 {

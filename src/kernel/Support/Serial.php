@@ -6,7 +6,7 @@
  * Time: 10:00
  */
 
-namespace Kernel\serial;
+namespace Kernel\Support;
 use Exception;
 class Serial
 {
@@ -24,7 +24,7 @@ class Serial
     private function init($filename)
     {
         $this->filename = base64_encode($filename);
-        $this->file = __DIR__."/".self::FILE_PATH."/".$this->filename;
+        $this->file = __DIR__ . "/" .$this->filename;
         $this->createDir(self::FILE_PATH);
         if(!file_exists($this->file)) {
             $str = $this->setStr(0);

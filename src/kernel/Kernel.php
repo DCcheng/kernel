@@ -104,14 +104,16 @@ class Kernel
     public function setClass()
     {
         return [
-            "token" => \Kernel\Ftoken\Token::class,
-            "validation" => \Kernel\Validation\Validation::class,
-            "curl" => \Kernel\Fcurl\Curl::class,
-            "maps" => \Kernel\Maps\Maps::class,
-            "serial" => \Kernel\Serial\Serial::class,
+            "token" => \Kernel\Support\Token::class,
+            "validation" => \Kernel\Support\Validation::class,
+            "curl" => \Kernel\Support\Curl::class,
+            "maps" => \Kernel\Support\Maps::class,
+            "serial" => \Kernel\Support\Serial::class,
             "acg" => \Kernel\Acg\AcgLaravel5::class,
-            "qrcode" => \Kernel\Qrcode\QRcode::class,
-            "pdf"=>\Kernel\Pdf\PdfConverterForLibreOffice::class
+            "qrcode" => \Kernel\Support\QRcode::class,
+            "pdf"=>\Kernel\Pdf\PdfConverterForLibreOffice::class,
+            "time"=>\Kernel\Support\Time::class,
+            "response"=>\Kernel\Support\Response::class
         ];
     }
 }

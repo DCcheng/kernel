@@ -6,7 +6,7 @@
  *  Date: 2019/4/30
  *  Time: 9:07
  */
-namespace Kernel\Validation;
+namespace Kernel\Support;
 use Exception;
 
 class Validation

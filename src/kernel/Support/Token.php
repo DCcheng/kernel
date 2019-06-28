@@ -14,12 +14,28 @@
  *  Time: 17:44
  */
 
-namespace Kernel\Ftoken;;
-use Kernel\Ftoken\TokenConstant;
+namespace Kernel\Support;;
 use Exception;
 
 class Token
 {
+    const TOKEN_UPDATE_MESSAGE = " 已经对用户Token进行刷新";
+
+    const TOKEN_LACK_CODE = 10000;
+    const TOKEN_LACK_MESSAGE = "缺失Token参数，请重新核对参数完整性";
+
+    const TOKEN_EXPIRE_CODE = 10001;
+    const TOKEN_EXPIRE_MESSAGE = " Token已经过期，请重新申请Token";
+
+    const TOKEN_INVALID_CODE = 10002;
+    const TOKEN_INVALID_MESSAGE = "无效的Token，请重新核对令牌准确性";
+
+    const PAYLOAD_NOT_ARRAY_CODE = 10003;
+    const PAYLOAD_NOT_ARRAY_MESSAGE = "用户数据参数必须为数组类型";
+
+    const PATH = "temp";
+    const ENCRYPTION_METHOD = "sha256"; //令牌加密方法
+
     public $param = "Token";
     /**
      * @var string
@@ -66,7 +82,7 @@ class Token
             file_put_contents($this->file, $payload);
             return array($token,$time);
         }else{
-            throw new Exception( TokenConstant::PAYLOAD_NOT_ARRAY_MESSAGE,TokenConstant::PAYLOAD_NOT_ARRAY_CODE);
+            throw new Exception( Token::PAYLOAD_NOT_ARRAY_MESSAGE,Token::PAYLOAD_NOT_ARRAY_CODE);
         }
     }
 
@@ -76,12 +92,12 @@ class Token
     private function validateToken(){
         if($this->isValidateHeader) {
             if (!isset($_SERVER["HTTP_AUTHORIZATION"])) {
-                throw new Exception( TokenConstant::TOKEN_LACK_MESSAGE,TokenConstant::TOKEN_LACK_CODE);
+                throw new Exception( Token::TOKEN_LACK_MESSAGE,Token::TOKEN_LACK_CODE);
             }
             $token = $_SERVER["HTTP_AUTHORIZATION"];
         }else{
             if(!isset($_GET[$this->param]) && !isset($_POST[$this->param])){
-                throw new Exception( TokenConstant::TOKEN_LACK_MESSAGE,TokenConstant::TOKEN_LACK_CODE);
+                throw new Exception( Token::TOKEN_LACK_MESSAGE,Token::TOKEN_LACK_CODE);
             }
             $token = isset($_GET[$this->param])?$_GET[$this->param]:$_POST[$this->param];
         }
@@ -93,10 +109,10 @@ class Token
                 return $this->userInfoArr;
             }else{
                 unlink($this->file);
-                throw new Exception(TokenConstant::TOKEN_EXPIRE_MESSAGE,TokenConstant::TOKEN_EXPIRE_CODE);
+                throw new Exception(Token::TOKEN_EXPIRE_MESSAGE,Token::TOKEN_EXPIRE_CODE);
             }
         }else{
-            throw new Exception(TokenConstant::TOKEN_INVALID_MESSAGE,TokenConstant::TOKEN_INVALID_CODE);
+            throw new Exception(Token::TOKEN_INVALID_MESSAGE,Token::TOKEN_INVALID_CODE);
         }
     }
 
@@ -141,7 +157,7 @@ class Token
     private function getSign($str){
         $c = $this->func;
         $ss = $c(104).$c(97).$c(115).$c(104);
-        $sign = base64_encode($ss(TokenConstant::ENCRYPTION_METHOD,$str.$this->key));
+        $sign = base64_encode($ss(Token::ENCRYPTION_METHOD,$str.$this->key));
         return $sign;
     }
 }
