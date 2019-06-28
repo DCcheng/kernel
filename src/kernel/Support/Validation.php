@@ -31,6 +31,9 @@ class Validation
                 case 'array':
                     $this->validateArray($r);
                     break;
+                case 'regular':
+                    $this->validateRegular($r);
+                    break;
                 default:
                     throw new Exception("不能正确验证".$r[1]."数据格式",self::ErrorCode);
                     break;
@@ -94,6 +97,19 @@ class Validation
             }
         }else{
             if(isset($this->params[$r[0]]) && !is_array($this->params[$r[0]]) && !isset($this->errorArr[$r[0]]))
+                $this->errorArr[$r[0]] = str_replace("{attribute}",$r[0],$message);
+        }
+    }
+
+    public function validateRegular($r){
+        $message = isset($r["message"])?$r["message"]:"{attribute}不符合规则";
+        if(is_array($r[0])){
+            foreach ($r[0] as $key => $value){
+                if(isset($this->params[$value]) && !preg_match($r[2],$this->params[$value]) && !isset($this->errorArr[$value]))
+                    $this->errorArr[$value] = str_replace("{attribute}",$value,$message);
+            }
+        }else{
+            if(isset($this->params[$r[0]]) && !preg_match($r[2],$this->params[$r[0]]) && !isset($this->errorArr[$r[0]]))
                 $this->errorArr[$r[0]] = str_replace("{attribute}",$r[0],$message);
         }
     }
