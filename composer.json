@@ -8,6 +8,7 @@
             "email": "cdc87296750@gmail.com"
         }
     ],
+    "version": "0.1.13",
     "minimum-stability": "dev",
     "require": {
         "php": ">=5.6",
