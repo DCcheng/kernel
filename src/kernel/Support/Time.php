@@ -19,6 +19,7 @@ class Time
     const TIME_TYPE_MILLISECOND = "millisecond";
     const DATE_FORMAT_ERROR = "日期格式错误";
     const TYPE_VALUE_ERROR = "非法类型值";
+    const SHIFT_VALUE_ERROR = "偏移量必须为Int类型";
 
     /**
      * @return int
@@ -34,6 +35,22 @@ class Time
     public function getMicroTimestamp()
     {
         return ceil(microtime(true) * 1000);
+    }
+
+
+
+    /**
+     * 获取当天凌晨时间戳
+     * @param int $shift
+     * @return false|float|int
+     * @throws Exception
+     */
+    public function getDayBreakTimestamp($shift = 0){
+        if(!is_int($shift))
+            throw new Exception(self::SHIFT_VALUE_ERROR);
+        $time = $this->toTimestamp($this->toDate($this->getTimestamp(),"Y-m-d"));
+        $time = $time + ($shift * 86400);
+        return $time;
     }
 
     /**
