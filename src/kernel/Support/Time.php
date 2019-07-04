@@ -48,9 +48,7 @@ class Time
     public function getDayBreakTimestamp($shift = 0){
         if(!is_int($shift))
             throw new Exception(self::SHIFT_VALUE_ERROR);
-        $time = $this->toTimestamp($this->toDate($this->getTimestamp(),"Y-m-d"));
-        $time = $time + ($shift * 86400);
-        return $time;
+        return strtotime(date("Y-m-d")) + ($shift * 86400);
     }
 
     /**
