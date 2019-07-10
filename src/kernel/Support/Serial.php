@@ -17,7 +17,7 @@ class Serial
     public $lenght = 7;
     private $str = "";
     private $code = "";
-    const FILE_PATH = "temp";
+    const FILE_PATH = "temp/Serial";
     const CODE_PREFIX = "";
     const ERROR_CODE = 0;
 

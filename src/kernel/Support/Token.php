@@ -14,7 +14,9 @@
  *  Time: 17:44
  */
 
-namespace Kernel\Support;;
+namespace Kernel\Support;
+;
+
 use Exception;
 
 class Token
@@ -47,7 +49,7 @@ class Token
      * @var int
      * TOKEN有效时间
      */
-    public $exp = 5184000;
+    public $exp = 7200;
 
     /**
      * @var string
@@ -73,46 +75,48 @@ class Token
      * @param  [array] $payload [需要记录的信息，一般存储用户ID等]
      * @return [array]          [接口返回数据，ret：状态字段，0-失败，1-成功。msg：操作返回信息描述。data：包含的数据]
      */
-    private function createToken($payload){
-        if(is_array($payload) && count($payload) > 0) {
+    private function createToken($payload)
+    {
+        if (is_array($payload) && count($payload) > 0) {
             $time = time() + $this->exp;
-            $payload = json_encode(array_merge($payload,array("exp"=>$time)));
+            $payload = json_encode(array_merge($payload, array("exp" => $time)));
             $token = $this->getSign(base64_encode($payload));
-            $this->file = __DIR__ . "/temp/" . $token;
+            $this->file = __DIR__ . "/temp/Token/" . $token;
             file_put_contents($this->file, $payload);
-            return array($token,$time);
-        }else{
-            throw new Exception( Token::PAYLOAD_NOT_ARRAY_MESSAGE,Token::PAYLOAD_NOT_ARRAY_CODE);
+            return array($token, $time);
+        } else {
+            throw new Exception(Token::PAYLOAD_NOT_ARRAY_MESSAGE, Token::PAYLOAD_NOT_ARRAY_CODE);
         }
     }
 
     /**
      * [validateTokenReturnArray 用于验证Token的有效性]
      */
-    private function validateToken(){
-        if($this->isValidateHeader) {
+    private function validateToken()
+    {
+        if ($this->isValidateHeader) {
             if (!isset($_SERVER["HTTP_AUTHORIZATION"])) {
-                throw new Exception( Token::TOKEN_LACK_MESSAGE,Token::TOKEN_LACK_CODE);
+                throw new Exception(Token::TOKEN_LACK_MESSAGE, Token::TOKEN_LACK_CODE);
             }
             $token = $_SERVER["HTTP_AUTHORIZATION"];
-        }else{
-            if(!isset($_GET[$this->param]) && !isset($_POST[$this->param])){
-                throw new Exception( Token::TOKEN_LACK_MESSAGE,Token::TOKEN_LACK_CODE);
+        } else {
+            if (!isset($_GET[$this->param]) && !isset($_POST[$this->param])) {
+                throw new Exception(Token::TOKEN_LACK_MESSAGE, Token::TOKEN_LACK_CODE);
             }
-            $token = isset($_GET[$this->param])?$_GET[$this->param]:$_POST[$this->param];
+            $token = isset($_GET[$this->param]) ? $_GET[$this->param] : $_POST[$this->param];
         }
-        $this->file = __DIR__ . "/temp/" .$token;
-        if(file_exists($this->file) && $token != ""){
-            $data = json_decode(file_get_contents($this->file),true);
-            if($data["exp"] > time()){
+        $this->file = __DIR__ . "/temp/Token/" . $token;
+        if (file_exists($this->file) && $token != "") {
+            $data = json_decode(file_get_contents($this->file), true);
+            if ($data["exp"] > time()) {
                 $this->userInfoArr = $data;
                 return $this->userInfoArr;
-            }else{
+            } else {
                 unlink($this->file);
-                throw new Exception(Token::TOKEN_EXPIRE_MESSAGE,Token::TOKEN_EXPIRE_CODE);
+                throw new Exception(Token::TOKEN_EXPIRE_MESSAGE, Token::TOKEN_EXPIRE_CODE);
             }
-        }else{
-            throw new Exception(Token::TOKEN_INVALID_MESSAGE,Token::TOKEN_INVALID_CODE);
+        } else {
+            throw new Exception(Token::TOKEN_INVALID_MESSAGE, Token::TOKEN_INVALID_CODE);
         }
     }
 
@@ -121,11 +125,13 @@ class Token
      * @param  [array] $payload [需要记录的信息，一般存储用户ID等]
      * @return [array]          [接口返回数据，ret：状态字段，0-失败，1-成功。msg：操作返回信息描述。data：包含的数据]
      */
-    public function create($payload){
+    public function create($payload)
+    {
         return $this->createToken($payload);
     }
 
-    public function validate(){
+    public function validate()
+    {
         return $this->validateToken();
     }
 
@@ -133,7 +139,8 @@ class Token
      * [invalidate 销毁令牌信息]
      * @return [array]        [接口返回数据，ret：状态字段，0-失败，1-成功。msg：操作返回信息描述。data：包含的数据]
      */
-    public function invalidate(){
+    public function invalidate()
+    {
         $this->validateToken();
         unlink($this->file);
     }
@@ -143,10 +150,32 @@ class Token
      * @param  [string] $token [用户访问令牌]
      * @return [array]        [接口返回数据，ret：状态字段，0-失败，1-成功。msg：操作返回信息描述。data：包含的数据]
      */
-    public function refresh(){
+    public function refresh()
+    {
         $info = $this->validateToken();
         unlink($this->file);
         return $this->createToken($info);
+    }
+
+    /**
+     * [cleanExpireToken 清除过期的令牌信息]
+     */
+    public function cleanExpireToken()
+    {
+        $path = __DIR__ . "/temp/Token";
+        $pathObj = dir($path);
+
+        while (($item = $pathObj->read()) != false) {
+            if ($item == '.' || $item == '..' || $item == ".gitignore") {
+                continue;
+            } else {
+                $file = $path . '/' . $item;
+                $times = time() - filemtime($file);
+                if ($times > $this->exp) {
+                    unlink($file);
+                }
+            }
+        }
     }
 
     /**
@@ -154,10 +183,11 @@ class Token
      * @param  [string] $str [传入字符串]
      * @return [string]      [加密令牌]
      */
-    private function getSign($str){
+    private function getSign($str)
+    {
         $c = $this->func;
-        $ss = $c(104).$c(97).$c(115).$c(104);
-        $sign = base64_encode($ss(Token::ENCRYPTION_METHOD,$str.$this->key));
+        $ss = $c(104) . $c(97) . $c(115) . $c(104);
+        $sign = base64_encode($ss(Token::ENCRYPTION_METHOD, $str . $this->key));
         return $sign;
     }
 }
