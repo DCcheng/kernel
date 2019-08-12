@@ -113,6 +113,7 @@ class Kernel
             "qrcode" => \Kernel\Support\QRcode::class,
             "pdf"=>\Kernel\Pdf\PdfConverterForLibreOffice::class,
             "time"=>\Kernel\Support\Time::class,
+            "string"=>\Kernel\Support\String::class,
             "response"=>\Kernel\Support\Response::class
         ];
     }

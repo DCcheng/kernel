@@ -13,6 +13,8 @@
     "require": {
         "php": ">=5.6",
         "ext-curl": "*",
+        "ext-iconv": "*",
+        "ext-mbstring": "*",
         "ext-json": "*"
     },
     "autoload": {

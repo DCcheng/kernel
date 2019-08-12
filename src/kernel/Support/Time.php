@@ -14,10 +14,11 @@ use Exception;
 
 class Time
 {
-    static $suffixStrArr = ["秒","分","时","天"];
+    static $suffixStrArr = ["秒", "分", "时", "天"];
     const TIME_TYPE_SECOND = "second";
     const TIME_TYPE_MILLISECOND = "millisecond";
     const DATE_FORMAT_ERROR = "日期格式错误";
+    const TIME_FORMAT_ERROR = "时间格式错误，应该是H:i:s";
     const TYPE_VALUE_ERROR = "非法类型值";
     const SHIFT_VALUE_ERROR = "偏移量必须为Int类型";
 
@@ -37,6 +38,48 @@ class Time
         return ceil(microtime(true) * 1000);
     }
 
+    /**
+     * @param $time
+     * @return false|int
+     */
+    public function getTimeForString($time)
+    {
+        return strtotime($time);
+    }
+
+    /**
+     * @return false|string
+     */
+    public function getTodayTimestamp()
+    {
+        return date("Y-m-d");
+    }
+
+    /**
+     * 获取时间错，根据时分秒获取
+     * @param $time
+     * @param string $date
+     * @return false|int
+     * @throws Exception
+     */
+    public function getTimestampForHMS($time, $date = "1970-01-01")
+    {
+        if (!preg_match("/^(([0-1]?\d)|(2[0-4])):[0-5]?\d:[0-5]?\d\s?(AM|PM)?$/", $time))
+            throw new Exception(self::TIME_FORMAT_ERROR);
+        $time = $date." " .  $this->toDate($this->getTimeForString($time), "H:i:s");
+        return $this->getTimeForString($time);
+    }
+
+
+    /**
+     * @param $timestamp
+     * @param string $format
+     * @return false|string
+     */
+    public function toDate($timestamp, $format = "Y-m-d H:i")
+    {
+        return date($format, $timestamp);
+    }
 
 
     /**
@@ -45,10 +88,11 @@ class Time
      * @return false|float|int
      * @throws Exception
      */
-    public function getDayBreakTimestamp($shift = 0){
-        if(!is_int($shift))
+    public function getDayBreakTimestamp($shift = 0)
+    {
+        if (!is_int($shift))
             throw new Exception(self::SHIFT_VALUE_ERROR);
-        return strtotime(date("Y-m-d")) + ($shift * 86400);
+        return $this->getTimeForString($this->getTodayTimestamp()) + ($shift * 86400);
     }
 
     /**
@@ -57,7 +101,7 @@ class Time
      */
     public function isDateTime($date)
     {
-        $ret = strtotime($date);
+        $ret = $this->getTimeForString($date);
         return $ret !== FALSE && $ret != -1;
     }
 
@@ -71,18 +115,9 @@ class Time
         if (!$this->isDateTime($date)) {
             throw new Exception(self::DATE_FORMAT_ERROR);
         }
-        return strtotime($date);
+        return $this->getTimeForString($date);
     }
 
-    /**
-     * @param $timestamp
-     * @param string $format
-     * @return false|string
-     */
-    public function toDate($timestamp, $format = "Y-m-d H:i")
-    {
-        return date($format, $timestamp);
-    }
 
     /**
      * @param $timestamp
@@ -109,25 +144,26 @@ class Time
      * @param $seconds
      * @return string
      */
-    public function toDateString($seconds){
+    public function toDateString($seconds)
+    {
         $seconds = (int)$seconds;
-        if( $seconds<60){
+        if ($seconds < 60) {
             $time = gmstrftime('%S', $seconds);
-        }else if( $seconds<3600){
+        } else if ($seconds < 3600) {
             $time = gmstrftime('%S %M', $seconds);
-        }else if( $seconds<86400 ){
+        } else if ($seconds < 86400) {
             $time = gmstrftime('%S %M %H', $seconds);
-        }else{
+        } else {
             $time = gmstrftime('%S %M %H %j', $seconds);
         }
         $times = explode(' ', $time);
         $strArr = [];
-        foreach ($times as $key=>$time){
-            if($key == 3)
+        foreach ($times as $key => $time) {
+            if ($key == 3)
                 $time--;
-            $strArr[] = (int)$time.self::$suffixStrArr[$key];
+            $strArr[] = (int)$time . self::$suffixStrArr[$key];
         }
-        return implode(" ",array_reverse($strArr));
+        return implode(" ", array_reverse($strArr));
     }
 
     /**
@@ -145,16 +181,16 @@ class Time
         if (!is_numeric($end_time)) {
             $end_time = $this->toTimestamp($end_time);
         }
-        $runTime =  $end_time - $start_time;
+        $runTime = $end_time - $start_time;
         switch ($type) {
             case self::TIME_TYPE_SECOND:
-                    $str = $this->toDateString($runTime);
+                $str = $this->toDateString($runTime);
                 break;
             case self::TIME_TYPE_MILLISECOND:
-                if($runTime <= 1000)
-                    $str = $runTime."毫秒";
+                if ($runTime <= 1000)
+                    $str = $runTime . "毫秒";
                 else
-                    $str = $this->toDateString(intval($runTime/1000))." ".(int)substr($runTime,3)."毫秒";
+                    $str = $this->toDateString(intval($runTime / 1000)) . " " . (int)substr($runTime, 3) . "毫秒";
                 break;
             default:
                 throw new Exception(self::TYPE_VALUE_ERROR);
