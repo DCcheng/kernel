@@ -1,6 +1,6 @@
 <?php
 /**
- *  FileName: String.php
+ *  FileName: Str.php
  *  Description :
  *  Author: DC
  *  Date: 2019/8/8
@@ -11,7 +11,7 @@
 namespace Kernel\Support;
 
 
-class String
+class Str
 {
 //    public function substr($string, $start, $length = null, $encoding = null){
 //        return substr($string, $start, $length);

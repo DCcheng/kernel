@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94103d3a-9ef7-43b7-89fc-04012b0d0ef5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/kernel/Support/String.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kernel/Acg/laravel5/Controller.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/src/kernel/Acg/laravel5/Controller.tpl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/kernel/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kernel/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kernel/Support/Time.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kernel/Support/Time.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kernel/Support/String.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kernel/Support/Str.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,6 +17,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/composer.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/kernel/Support/Time.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -52,11 +58,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/kernel/Support/String.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/kernel/Support/Str.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="18" column="7" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="18" selection-end-column="7" />
+            <state relative-caret-position="127">
+              <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/kernel/Kernel.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1177">
+              <caret line="99" lean-forward="true" selection-start-line="99" selection-end-line="99" />
             </state>
           </provider>
         </entry>
@@ -75,24 +90,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="172">
               <caret line="552" column="48" lean-forward="true" selection-start-line="552" selection-start-column="17" selection-end-line="552" selection-end-column="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="24" selection-start-line="24" selection-end-line="24" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/example/validation.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="23" column="48" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -162,7 +159,6 @@
         <option value="$PROJECT_DIR$/src/kernel/Support/BaseSupport.php" />
         <option value="$PROJECT_DIR$/src/kernel/Support/Timestamp.php" />
         <option value="$PROJECT_DIR$/src/kernel/Support/Support.php" />
-        <option value="$PROJECT_DIR$/src/kernel/Support/Str.php" />
         <option value="$PROJECT_DIR$/src/kernel/Support/Response.php" />
         <option value="$PROJECT_DIR$/src/kernel/Ftoken/Token.php" />
         <option value="$PROJECT_DIR$/src/kernel/Pdf/PdfConverterForLibreOffice.php" />
@@ -178,10 +174,11 @@
         <option value="$PROJECT_DIR$/src/kernel/Support/Validation.php" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/src/kernel/Support/StringConvert.php" />
-        <option value="$PROJECT_DIR$/src/kernel/Kernel.php" />
         <option value="$PROJECT_DIR$/src/kernel/Support/Time.php" />
         <option value="$PROJECT_DIR$/src/kernel/Acg/laravel5/Controller.tpl" />
         <option value="$PROJECT_DIR$/src/kernel/Support/String.php" />
+        <option value="$PROJECT_DIR$/src/kernel/Support/Str.php" />
+        <option value="$PROJECT_DIR$/src/kernel/Kernel.php" />
       </list>
     </option>
   </component>
@@ -324,7 +321,7 @@
       <workItem from="1564535549736" duration="591000" />
       <workItem from="1565228227406" duration="2891000" />
       <workItem from="1565310234131" duration="849000" />
-      <workItem from="1565570076591" duration="1077000" />
+      <workItem from="1565570076591" duration="2264000" />
     </task>
     <task id="LOCAL-00001" summary="V0.1 TEST">
       <created>1556595305495</created>
@@ -564,11 +561,18 @@
       <option name="project" value="LOCAL" />
       <updated>1564448814808</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="V0.1.17master">
+      <created>1565572397113</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1565572397113</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93143000" />
+    <option name="totallyTimeSpent" value="94330000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="14" y="11" width="1352" height="728" extended-state="0" />
@@ -578,7 +582,7 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3277311" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -616,7 +620,8 @@
     <MESSAGE value="V0.1.14" />
     <MESSAGE value="V0.1.15" />
     <MESSAGE value="V0.1.16master" />
-    <option name="LAST_COMMIT_MESSAGE" value="V0.1.16master" />
+    <MESSAGE value="V0.1.17master" />
+    <option name="LAST_COMMIT_MESSAGE" value="V0.1.17master" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/kernel/Ftoken/temp/.gitignore" />
@@ -743,13 +748,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/kernel/Support/Serial.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="551">
@@ -771,13 +769,6 @@
           <folding>
             <element signature="e#131#143#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/kernel/Kernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1995">
-          <caret line="116" column="55" selection-start-line="116" selection-start-column="55" selection-end-line="116" selection-end-column="55" />
         </state>
       </provider>
     </entry>
@@ -840,10 +831,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/kernel/Support/String.php">
+    <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="18" column="7" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="18" selection-end-column="7" />
+        <state relative-caret-position="304">
+          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kernel/Support/Str.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kernel/Kernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1177">
+          <caret line="99" lean-forward="true" selection-start-line="99" selection-end-line="99" />
         </state>
       </provider>
     </entry>
