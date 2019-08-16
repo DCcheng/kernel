@@ -18,7 +18,7 @@ class Time
     const TIME_TYPE_SECOND = "second";
     const TIME_TYPE_MILLISECOND = "millisecond";
     const DATE_FORMAT_ERROR = "日期格式错误";
-    const TIME_FORMAT_ERROR = "时间格式错误，应该是H:i:s";
+    const TIME_FORMAT_ERROR = "时间格式错误，应该是H:i:s或者H:i";
     const TYPE_VALUE_ERROR = "非法类型值";
     const SHIFT_VALUE_ERROR = "偏移量必须为Int类型";
 
@@ -64,7 +64,7 @@ class Time
      */
     public function getTimestampForHMS($time, $date = "1970-01-01")
     {
-        if (!preg_match("/^(([0-1]?\d)|(2[0-4])):[0-5]?\d:[0-5]?\d\s?(AM|PM)?$/", $time))
+        if (!preg_match("/^(([0-1]?\d)|(2[0-4])):[0-5]?\d(:[0-5]?\d)?\s?(AM|PM)?$/", $time))
             throw new Exception(self::TIME_FORMAT_ERROR);
         $time = $date." " .  $this->toDate($this->getTimeForString($time), "H:i:s");
         return $this->getTimeForString($time);

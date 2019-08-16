@@ -25,11 +25,11 @@ class Str
      * @return false|string
      */
     public function convert($string,$out_charset,$in_charset = "UTF-8"){
-        if (function_exists('mb_convert_encoding')){
-            $string = mb_convert_encoding($string,$in_charset,$out_charset);
-        } else {
+//        if (function_exists('mb_convert_encoding')){
+//            $string = mb_convert_encoding($string,$in_charset,$out_charset);
+//        } else {
             $string = iconv($in_charset,$out_charset."//IGNORE",$string);
-        }
+//        }
         return $string;
     }
 

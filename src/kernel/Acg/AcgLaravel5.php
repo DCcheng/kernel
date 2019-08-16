@@ -84,7 +84,7 @@ class AcgLaravel5 implements AcgInterface
     public function setRequest()
     {
         $this->setTpl($this->requestNamespace,$this->requestName,"Request.tpl",function($str){
-            $columns = DB::select("SHOW FULL COLUMNS FROM crm_$this->table");
+            $columns = DB::select("SHOW FULL COLUMNS FROM ems_$this->table");
             $rules = [];
             $attributes = [];
             foreach ($columns as $column) {

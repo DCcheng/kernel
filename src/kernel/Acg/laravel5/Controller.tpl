@@ -16,6 +16,8 @@ use App\Api\Requests\ListRequest;
 use App\Api\Utils\Pager;
 use App\Api\Utils\Response;
 use Illuminate\Support\Facades\DB;
+use Exception;
+use Illuminate\Http\Request;
 use {{modelNamespace}}\{{modelName}};
 
 class {{className}} extends Controller
