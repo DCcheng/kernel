@@ -97,7 +97,7 @@ class VideoCommand
 
         if($end_time != null  && (is_int($end_time) || preg_match("/^(([0-1]?\d)|(2[0-4])):[0-5]?\d:[0-5]?\d$/", $end_time))) {
             $command[] = "-to " . $end_time;
-        }else{
+        }else if($end_time != null){
             throw new Exception("输入截取结束时间格式错误");
         }
 
