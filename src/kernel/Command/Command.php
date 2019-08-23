@@ -33,14 +33,12 @@ class Command implements CommandInterface
      * @param bool $bool
      * @return string
      */
-    public function execute($bool = true)
+    public function execute($bool = true,$binPath = "/usr/bin")
     {
-        $command = "PATH=/usr/bin ".implode("&&",$this->command);
+        $command = "PATH=".$binPath."&".implode("&&",$this->command);
         if(self::isWindowsSystem() && $bool)
             $command .= " > /dev/null &2>1&";
         $this->command = [];
-        echo $command;
-        die();
         return exec($command);
     }
 }
