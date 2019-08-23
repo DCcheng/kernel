@@ -11,13 +11,11 @@ require_once "../vendor/autoload.php";
 use Kernel\Kernel;
 
 $kernel = Kernel::init();
-echo Kernel::video()->screenCaptureCommand("E:/download/3.mkv","image","E:/download/",150);
-die();
+//echo Kernel::video()->screenCaptureCommand("E:/download/3.mkv","image","E:/download/",150);
 try {
     Kernel::command()->addCommand([
-        Kernel::video()->mergeCommand(["E:/download/2.mkv","E:/download/5.mkv"],"E:/download/5.mp4"),
-        Kernel::video()->screenCaptureCommand("E:/download/3.mkv","image","E:/download/",150,160)
-    ])->execute();
+        \Kernel\Command\DBCommand::backup("root","DSPPAsmart20160928","ems","/home/backup/TEST.zip")
+    ])->execute(false);
 } catch (Exception $exception) {
     echo $exception->getMessage();
 }

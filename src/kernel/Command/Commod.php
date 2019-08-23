@@ -13,7 +13,7 @@ namespace Kernel\Command;
 
 trait Commod
 {
-    public function isWindowsSystem(){
+    public static function isWindowsSystem(){
         return strtoupper(substr(PHP_OS, 0, 3)) == 'WIN';
     }
 }

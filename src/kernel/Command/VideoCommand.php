@@ -23,7 +23,7 @@ class VideoCommand
      * @return string
      * @throws Exception
      */
-    public function cutOutCommand($source, $target, $start_time, $end_time)
+    public static function cutOutCommand($source, $target, $start_time, $end_time)
     {
         if(!file_exists($source))
             throw new Exception("无法读取源文件，请重新检查源文件是否存在");
@@ -46,7 +46,7 @@ class VideoCommand
      * @return string
      * @throws Exception
      */
-    public function mergeCommand($source,$target)
+    public static function mergeCommand($source,$target)
     {
         $sourceFiles = [];
         if(!is_array($source) && count($source) >= 2)
@@ -66,7 +66,7 @@ class VideoCommand
         file_put_contents($path."/".$filename,implode("\n",$sourceFiles));
 
         $command = "cd ".$path." && ffmpeg -f concat -safe 0 -i ".$filename." -c copy ".$target;
-        if($this->isWindowsSystem()){
+        if(self::isWindowsSystem()){
             $command .= "&& del ".$filename;
         }else{
             $command .= " && rm -Rf ".$filename;
@@ -85,7 +85,7 @@ class VideoCommand
      * @return string
      * @throws Exception
      */
-    public function screenCaptureCommand($source, $target_name,$path, $start_time,$end_time = null){
+    public static function screenCaptureCommand($source, $target_name,$path, $start_time,$end_time = null){
 
         $command = ["ffmpeg"];
 

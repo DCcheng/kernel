@@ -111,11 +111,9 @@ class Kernel
             "serial" => \Kernel\Support\Serial::class,
             "acg" => \Kernel\Acg\AcgLaravel5::class,
             "qrcode" => \Kernel\Support\QRcode::class,
-            "pdf" => \Kernel\Command\PdfCommand::class,
             "time" => \Kernel\Support\Time::class,
             "string" => \Kernel\Support\Str::class,
             "response" => \Kernel\Support\Response::class,
-            "video" => \Kernel\Command\VideoCommand::class,
             "command" => \Kernel\Command\Command::class
         ];
     }

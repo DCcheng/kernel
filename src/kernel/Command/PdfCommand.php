@@ -12,7 +12,7 @@ namespace Kernel\Command;
 
 class PdfCommand
 {
-    public function convert($source, $export)
+    public static function convert($source, $export)
     {
         $arr = explode("/",$export);
         array_pop($arr);
