@@ -1,6 +1,6 @@
 <?php
 /**
- *  FileName: validation.php
+ *  FileName: command.php
  *  Description :
  *  Author: DC
  *  Date: 2019/7/30
@@ -10,11 +10,11 @@ require_once "../vendor/autoload.php";
 
 use Kernel\Kernel;
 
-$kernel = Kernel::init();
-//echo Kernel::video()->screenCaptureCommand("E:/download/3.mkv","image","E:/download/",150);
+Kernel::init();
+//echo
 try {
     Kernel::command()->addCommand([
-        \Kernel\Command\DBCommand::backup("root","DSPPAsmart20160928","ems","/home/backup/TEST.zip")
+        Kernel::video()->screenCaptureCommand("E:/download/3.mkv","image","E:/download/",150)
     ])->execute(false);
 } catch (Exception $exception) {
     echo $exception->getMessage();
