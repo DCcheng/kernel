@@ -111,7 +111,7 @@ class VideoCommand
         if($end_time == null) {
             if (file_exists($target_name.".jpg"))
                 throw new Exception("生成的目标文件已经存在，请重新输入文件名");
-            $command[] = "-y " . $target_name.".jpg";
+            $command[] = "-y " . $path."/".$target_name.".jpg";
         }else{
             $dh = opendir($path);
             while (($file = readdir($dh)) !== false){
@@ -122,7 +122,7 @@ class VideoCommand
                     }
                 }
             }
-            $command[] = "-y " . $target_name."-%d.jpg";
+            $command[] = "-y " . $path."/".$target_name."-%d.jpg";
         }
         return implode(" ",$command);
     }
