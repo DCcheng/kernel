@@ -29,7 +29,7 @@ class VideoCommand
             throw new Exception("无法读取源文件，请重新检查源文件是否存在");
         if(file_exists($target))
             throw new Exception("生成的目标文件已经存在，请重新输入文件名");
-        $command = ["ffmpeg -safe 0 -i " . $source];
+        $command = ["nice ffmpeg -safe 0 -i " . $source];
         if ($start_time != null && (is_int($start_time) || preg_match("/^(([0-1]?\d)|(2[0-4])):[0-5]?\d:[0-5]?\d$/", $start_time)))
             $command[] = " -ss " . $start_time;
         if ($start_time != null && (is_int($start_time) || preg_match("/^(([0-1]?\d)|(2[0-4])):[0-5]?\d:[0-5]?\d$/", $end_time)))
@@ -38,9 +38,20 @@ class VideoCommand
         return implode(" ",$command);
     }
 
+    public static function transcodeToTS($source,$resolution_ratio = "1080p"){
+        $resolution_ratio = $resolution_ratio == "1080p" ? "1920*1080" : "1280*720";
+        if(!file_exists($source))
+            throw new Exception("无法读取文件，请重新检查文件是否存在");
+        $targetArr = explode(".",$source);
+        array_pop($targetArr);
+        $target = implode(".",$targetArr).".ts";
+        $command = "nice ffmpeg -y -i " . $source . "  -vcodec libx264 -preset ultrafast -v:b 1000 -s " . $resolution_ratio . " -y -acodec aac -ac 1 -ar 48000 -bsf:v h264_mp4toannexb -f mpegts " . $target;
+        return $command;
+    }
     //合并视频
 
     /**
+     * 执行合并前必须执行transcodeToTS，另外合并视频需要相同的分辨率
      * @param $source
      * @param $target
      * @return string
@@ -51,26 +62,14 @@ class VideoCommand
         $sourceFiles = [];
         if(!is_array($source) && count($source) >= 2)
             throw new Exception("source参数必须为数组类型且数组长度必须为2个以上");
-
         foreach ($source as $key => $value){
             if(!file_exists($value))
                 throw new Exception("无法读取".$value."文件，请重新检查文件是否存在");
             $sourceFiles[] = "file ".addslashes($value);
         }
-
         if(file_exists($target))
             throw new Exception("生成的目标文件已经存在，请重新输入文件名");
-
-        $path = dirname(__FILE__)."/temp";
-        $filename = md5(time().rand(100,999)).".txt";
-        file_put_contents($path."/".$filename,implode("\n",$sourceFiles));
-
-        $command = "cd ".$path." && ffmpeg -f concat -safe 0 -i ".$filename." -c copy ".$target;
-        if(self::isWindowsSystem()){
-            $command .= "&& del ".$filename;
-        }else{
-            $command .= " && rm -Rf ".$filename;
-        }
+        $command = 'nice ffmpeg -y -i "concat:' . implode("|", $source) . '"  -vcodec copy -acodec copy -bsf:a aac_adtstoasc -movflags +faststart -f mp4 '.$target;
         return $command;
     }
 
@@ -87,7 +86,7 @@ class VideoCommand
      */
     public static function screenCaptureCommand($source, $target_name,$path, $start_time,$end_time = null){
 
-        $command = ["ffmpeg"];
+        $command = ["nice ffmpeg"];
 
         if ($start_time != null && (is_int($start_time) || preg_match("/^(([0-1]?\d)|(2[0-4])):[0-5]?\d:[0-5]?\d$/", $start_time))) {
             $command[] = "-ss " . $start_time;
@@ -125,5 +124,19 @@ class VideoCommand
             $command[] = "-y " . $path."/".$target_name."-%d.jpg";
         }
         return implode(" ",$command);
+    }
+
+    public static function toM3u8($source){
+        if(!file_exists($source))
+            throw new Exception("无法读取文件，请重新检查文件是否存在");
+        $targetArr = explode(".",$source);
+        array_pop($targetArr);
+        $target = implode(".",$targetArr);
+        $targetIndex = $target.".m3u8";
+        $targetTS = $target."_%d.ts";
+        if(file_exists($targetIndex))
+            throw new Exception("生成的目标文件已经存在，无需重复生成");
+        $command = "nice ffmpeg -i ".$source." -c copy -f segment -segment_list ".$targetIndex." ".$targetTS;
+        return $command;
     }
 }

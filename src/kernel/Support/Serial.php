@@ -75,7 +75,7 @@ class Serial
     private function createDir($path){
         if (!file_exists($path)){
             $this->createDir(dirname($path));
-            mkdir($path, 0777);
+            mkdir($path, 0777,true);
         }
     }
 }
