@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94103d3a-9ef7-43b7-89fc-04012b0d0ef5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/kernel/Support/File.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kernel/Support/Server.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kernel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kernel.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kernel/Command/VideoCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kernel/Command/VideoCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kernel/Support/Curl.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kernel/Support/Curl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kernel/Support/Serial.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kernel/Support/Serial.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kernel/Support/File.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kernel/Support/File.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,8 +32,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/kernel/Support/File.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="49">
-              <caret line="53" column="48" lean-forward="true" selection-start-line="53" selection-start-column="48" selection-end-line="53" selection-end-column="48" />
+            <state relative-caret-position="-669">
+              <caret line="67" column="7" selection-start-line="67" selection-start-column="7" selection-end-line="67" selection-end-column="7" />
               <folding>
                 <element signature="e#135#149#0#PHP" expanded="true" />
               </folding>
@@ -359,7 +353,7 @@
       <workItem from="1566519745979" duration="10149000" />
       <workItem from="1567067263926" duration="666000" />
       <workItem from="1568776263798" duration="897000" />
-      <workItem from="1574905494674" duration="3123000" />
+      <workItem from="1574905494674" duration="3386000" />
     </task>
     <task id="LOCAL-00001" summary="V0.1 TEST">
       <created>1556595305495</created>
@@ -669,11 +663,18 @@
       <option name="project" value="LOCAL" />
       <updated>1567067312365</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="更新视频截图命令执行路径不对称的问题">
+      <created>1574911042549</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1574911042549</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="138739000" />
+    <option name="totallyTimeSpent" value="139002000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1009,8 +1010,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/kernel/Support/File.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="49">
-          <caret line="53" column="48" lean-forward="true" selection-start-line="53" selection-start-column="48" selection-end-line="53" selection-end-column="48" />
+        <state relative-caret-position="-669">
+          <caret line="67" column="7" selection-start-line="67" selection-start-column="7" selection-end-line="67" selection-end-column="7" />
           <folding>
             <element signature="e#135#149#0#PHP" expanded="true" />
           </folding>
