@@ -151,7 +151,6 @@ class VideoCommand
         list($data['duration']) = explode(".",explode(",",$duration)[0]);
         $arr_duration = explode(':', $data['duration']);
         $data['seconds'] = $arr_duration[0] * 3600 + $arr_duration[1] * 60 + $arr_duration[2]; //转换播放时间为秒数
-        var_dump($data);
         return $data;
     }
 }

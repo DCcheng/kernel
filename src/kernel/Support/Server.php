@@ -3,10 +3,19 @@
 
 namespace Kernel\Support;
 use Kernel\Kernel;
+use Kernel\Support\File;
+use Kernel\Command\Command;
 use Exception;
 
 class Server
 {
+    public $file;
+    public $command;
+    public function __construct(File $file,Command $command)
+    {
+        $this->file = $file;
+        $this->command = $command;
+    }
     /**
      * @param string $name
      * @return array
@@ -16,7 +25,7 @@ class Server
     {
         try {
             $info = [];
-            Kernel::command()->addCommand([
+            $this->command->addCommand([
                 "cd /usr/sbin&&./ifconfig |grep $name -A 3 | awk '{print $2\"@\"$4\"@\"$6}'"
             ])->execute(false, "/usr/sbin/", $info);
             list($ip,$netmask,$broadcast) = explode("@",$info[1]);
@@ -39,7 +48,7 @@ class Server
     public function getDiskUUID($index = 0)
     {
         $info = [];
-        Kernel::command()->addCommand([
+        $this->command->addCommand([
             "cd /usr/bin&&./ls /dev/disk/by-uuid"
         ])->execute(false, "/usr/bin/", $info);
         if (count($info) > 0) {
@@ -67,7 +76,7 @@ class Server
     public function getCpuModel()
     {
         $info = [];
-        Kernel::command()->addCommand([
+        $this->command->addCommand([
             "cd /usr/bin&&./cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c "
         ])->execute(false, "/usr/bin/", $info);
         if (count($info) > 0) {
@@ -85,7 +94,7 @@ class Server
     public function getDiskUseInfo()
     {
         $info = $disk = [];
-        Kernel::command()->addCommand(['df -lh | grep -E "^(/)"'])->execute(false, "/usr/bin", $info);
+        $this->command->addCommand(['df -lh | grep -E "^(/)"'])->execute(false, "/usr/bin", $info);
         foreach ($info as $key => $value) {
             $temp = explode(" ", preg_replace('/\s{2,}/', ' ', $value));
             $disk[] = ["path" => $temp[5], "total" => $temp[1], "avail" => $temp[3], "usage" => $temp[4]];
@@ -102,7 +111,7 @@ class Server
         $keyArr = ["MemTotal", "MemFree", "MemAvailable", "Buffers", "Cached"];
         $meminfo = ["MemTotal" => 0, "MemFree" => 0, "Buffers" => 0, "Cached" => 0];
         $info = [];
-        Kernel::command()->addCommand([
+        $this->command->addCommand([
             "cd /usr/bin&&./cat /proc/meminfo"
         ])->execute(false, "/usr/bin/", $info);
         foreach ($info as $key => $value) {
@@ -124,7 +133,7 @@ class Server
     {
         $Input = $Output = 0;
         $info = [];
-        Kernel::command()->addCommand([
+        $this->command->addCommand([
             "cd /usr/bin&&./cat /proc/net/dev | grep $name | awk '{print $2\"@\"$10}'",
             "sleep 1",
             "cd /usr/bin&&./cat /proc/net/dev | grep $name | awk '{print $2\"@\"$10}'"
@@ -135,8 +144,8 @@ class Server
             $Input = (int)$I[1] - (int)$I[0];
             $Output = (int)$O[1] - (int)$O[0];
         }
-        list($data["Input"]["value"],$data["Input"]["unit"]) = File::formatBytes($Input);
-        list($data["Output"]["value"],$data["Output"]["unit"]) = File::formatBytes($Output);
+        list($data["Input"]["value"],$data["Input"]["unit"]) = $this->file->formatBytes($Input);
+        list($data["Output"]["value"],$data["Output"]["unit"]) = $this->file->formatBytes($Output);
         $data["Input"]["unit"] .= "/s";
         $data["Output"]["unit"] .= "/s";
         return $data;
