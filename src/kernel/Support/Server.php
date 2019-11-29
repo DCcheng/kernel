@@ -12,7 +12,7 @@ class Server
      * @return array
      * @throws \Exception
      */
-    public static function getNetworkInfo($name = "eth0")
+    public function getNetworkInfo($name = "eth0")
     {
         try {
             $info = [];
@@ -36,7 +36,7 @@ class Server
      * @param int $index
      * @return mixed|string
      */
-    public static function getDiskUUID($index = 0)
+    public function getDiskUUID($index = 0)
     {
         $info = [];
         Kernel::command()->addCommand([
@@ -64,7 +64,7 @@ class Server
     /**
      * @return mixed|string
      */
-    public static function getCpuModel()
+    public function getCpuModel()
     {
         $info = [];
         Kernel::command()->addCommand([
@@ -82,7 +82,7 @@ class Server
      * 获取磁盘信息
      * @return array
      */
-    public static function getDiskUseInfo()
+    public function getDiskUseInfo()
     {
         $info = $disk = [];
         Kernel::command()->addCommand(['df -lh | grep -E "^(/)"'])->execute(false, "/usr/bin", $info);
@@ -97,7 +97,7 @@ class Server
      * 获取内存信息
      * @return mixed
      */
-    public static function getMemInfo()
+    public function getMemInfo()
     {
         $keyArr = ["MemTotal", "MemFree", "MemAvailable", "Buffers", "Cached"];
         $meminfo = ["MemTotal" => 0, "MemFree" => 0, "Buffers" => 0, "Cached" => 0];
@@ -120,7 +120,7 @@ class Server
         return $data;
     }
 
-    public static function getIOInfo($name = "eth0")
+    public function getIOInfo($name = "eth0")
     {
         $Input = $Output = 0;
         $info = [];

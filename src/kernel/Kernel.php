@@ -114,7 +114,13 @@ class Kernel
             "time" => \Kernel\Support\Time::class,
             "string" => \Kernel\Support\Str::class,
             "response" => \Kernel\Support\Response::class,
-            "command" => \Kernel\Command\Command::class
+            "command" => \Kernel\Command\Command::class,
+            "server" => \Kernel\Support\Server::class,
+            "encrypt"=>\Kernel\Support\Encrypt::class,
+            "array" => \Kernel\Support\ArrayColumn::class,
+            "ip" => \Kernel\Support\Ip::class,
+            "file" => \Kernel\Support\File::class,
+            "envFile" => \Kernel\Support\EnvFile::class
         ];
     }
 }

@@ -9,6 +9,7 @@
 
 
 namespace Kernel\Command;
+use Kernel\Kernel;
 use Exception;
 
 class VideoCommand
@@ -138,5 +139,19 @@ class VideoCommand
             throw new Exception("生成的目标文件已经存在，无需重复生成");
         $command = "nice ffmpeg -i ".$source." -c copy -f segment -segment_list ".$targetIndex." ".$targetTS;
         return $command;
+    }
+
+    public static function getVideoInfo($file,$binPath = "/usr/bin")
+    {
+        $command = sprintf('nice ffmpeg -i "%s" 2>&1|grep Duration | awk {\'print $2"@"$6\'}', $file);
+        $info = $data = [];
+        Kernel::command()->addCommand([$command])->execute(false, $binPath, $info);
+        $info[0] = "00:00:06.70,@6823";
+        list($duration,$data['bitrate']) = explode("@",$info[0]);
+        list($data['duration']) = explode(".",explode(",",$duration)[0]);
+        $arr_duration = explode(':', $data['duration']);
+        $data['seconds'] = $arr_duration[0] * 3600 + $arr_duration[1] * 60 + $arr_duration[2]; //转换播放时间为秒数
+        var_dump($data);
+        return $data;
     }
 }
