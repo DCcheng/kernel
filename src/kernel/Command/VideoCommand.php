@@ -146,7 +146,6 @@ class VideoCommand
         $command = sprintf('nice ffmpeg -i "%s" 2>&1|grep Duration | awk {\'print $2"@"$6\'}', $file);
         $info = $data = [];
         Kernel::command()->addCommand([$command])->execute(false, $binPath, $info);
-        $info[0] = "00:00:06.70,@6823";
         list($duration,$data['bitrate']) = explode("@",$info[0]);
         list($data['duration']) = explode(".",explode(",",$duration)[0]);
         $arr_duration = explode(':', $data['duration']);
