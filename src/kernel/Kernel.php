@@ -120,7 +120,8 @@ class Kernel
             "array" => \Kernel\Support\ArrayColumn::class,
             "ip" => \Kernel\Support\Ip::class,
             "file" => \Kernel\Support\File::class,
-            "envFile" => \Kernel\Support\EnvFile::class
+            "envFile" => \Kernel\Support\EnvFile::class,
+            "upload" => \Kernel\Support\Upload::class,
         ];
     }
 }

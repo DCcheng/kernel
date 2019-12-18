@@ -19,18 +19,22 @@ class VideoCommand
     /**
      * @param $source
      * @param $target
+     * @param $is_recode
      * @param $start_time
      * @param $end_time
      * @return string
      * @throws Exception
      */
-    public static function cutOutCommand($source, $target, $start_time, $end_time)
+    public static function cutOutCommand($source, $target,$is_recode, $start_time, $end_time)
     {
         if(!file_exists($source))
             throw new Exception("无法读取源文件，请重新检查源文件是否存在");
         if(file_exists($target))
             throw new Exception("生成的目标文件已经存在，请重新输入文件名");
-        $command = ["nice ffmpeg -safe 0 -i " . $source];
+        $command = ["ffmpeg -i " . $source];
+        if(!$is_recode){
+            $command[] = " -c copy";
+        }
         if ($start_time != null && (is_int($start_time) || preg_match("/^(([0-1]?\d)|(2[0-4])):[0-5]?\d:[0-5]?\d$/", $start_time)))
             $command[] = " -ss " . $start_time;
         if ($start_time != null && (is_int($start_time) || preg_match("/^(([0-1]?\d)|(2[0-4])):[0-5]?\d:[0-5]?\d$/", $end_time)))

@@ -70,6 +70,18 @@ class Server
         return $uuid;
     }
 
+    public function getBootUUid(){
+        $uuid = "";
+        $info = [];
+        Kernel::command()->addCommand([
+            "lsblk -f|grep '/boot'|awk '{print $3}'"
+        ])->execute(false, "/usr/bin", $info);
+        if (count($info) > 0) {
+            $uuid = $info[0];
+        }
+        return $uuid;
+    }
+
     /**
      * @return mixed|string
      */
