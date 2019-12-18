@@ -4,6 +4,7 @@
 namespace Kernel\Support;
 
 use Exception;
+use Kernel\Support\File;
 
 class Upload
 {
@@ -14,6 +15,12 @@ class Upload
     private $type = "";
     private $tmp_name = "";
     private $extension = "";
+    private $fileObj = null;
+
+    public function __construct(File $file)
+    {
+        $this->fileObj = $file;
+    }
 
     public function __set($name, $value)
     {
@@ -176,19 +183,8 @@ class Upload
             $extension = strtolower(end($filenameInfo));
             $name = md5(time().mt_rand(1000,9999)).".".$extension;
             $this->uploadPathName = strrchr($path, "/") != "/" ? $path . "/" . $name : $path . $name;
-            if (file_exists($this->rootPath . $this->uploadPathName)) {
-                throw new Exception("保存文件已经存在，无法重复保存，请重新命名");
-            }
 
-            $fp = fopen($this->rootPath . $this->uploadPathName, "ab");
-            foreach ($files as $value) {
-                $handle = fopen($fragDir . "/" . $value, "rb");
-                fwrite($fp, fread($handle, filesize($fragDir . "/" . $value)));
-                fclose($handle);
-                unlink($fragDir . "/" . $value);
-            }
-            fclose($fp);
-            rmdir($fragDir);
+            $this->fileObj->merge($this->rootPath . $this->uploadPathName,$fragDir,true);
 
             if (!is_null($afterfunc)) {
                 $this->afterSave($afterfunc);
