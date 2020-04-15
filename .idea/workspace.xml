@@ -77,7 +77,7 @@
         <entry file="file://$PROJECT_DIR$/composer.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="171">
-              <caret line="9" column="6" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+              <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -85,8 +85,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/kernel/Support/Token.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2448">
-              <caret line="173" column="35" selection-start-line="173" selection-start-column="35" selection-end-line="173" selection-end-column="35" />
+            <state relative-caret-position="244">
+              <caret line="81" column="34" selection-start-line="81" selection-start-column="34" selection-end-line="81" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -344,14 +344,7 @@
       <workItem from="1576543181602" duration="19422000" />
       <workItem from="1576629407346" duration="15518000" />
       <workItem from="1576716501420" duration="878000" />
-      <workItem from="1586917570453" duration="249000" />
-    </task>
-    <task id="LOCAL-00003" summary="V0.1 TEST">
-      <created>1556596526266</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1556596526266</updated>
+      <workItem from="1586917570453" duration="870000" />
     </task>
     <task id="LOCAL-00004" summary="V0.1.1">
       <created>1558930000073</created>
@@ -689,11 +682,18 @@
       <option name="project" value="LOCAL" />
       <updated>1576652261745</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="0.2.4">
+      <created>1586917836563</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1586917836563</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="190398000" />
+    <option name="totallyTimeSpent" value="191019000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -734,7 +734,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="V0.1 TEST" />
     <MESSAGE value="V0.1.1" />
     <MESSAGE value="V0.1.2" />
     <MESSAGE value="V0.1.3" />
@@ -759,7 +758,8 @@
     <MESSAGE value="0.2.1" />
     <MESSAGE value="0.2.2" />
     <MESSAGE value="0.2.3" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.2.3" />
+    <MESSAGE value="0.2.4" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.2.4" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/kernel/Command/temp/d9a79840b9b74d2c579392afcc277abd.txt" />
@@ -1048,14 +1048,14 @@
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
-          <caret line="9" column="6" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/kernel/Support/Token.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2448">
-          <caret line="173" column="35" selection-start-line="173" selection-start-column="35" selection-end-line="173" selection-end-column="35" />
+        <state relative-caret-position="244">
+          <caret line="81" column="34" selection-start-line="81" selection-start-column="34" selection-end-line="81" selection-end-column="34" />
         </state>
       </provider>
     </entry>

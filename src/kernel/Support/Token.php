@@ -79,7 +79,7 @@ class Token
     private function createToken($payload)
     {
         if(!is_dir($this->path)){
-            mkdir($this->path,777,true);
+            mkdir($this->path,0777,true);
         }
         if (is_array($payload) && count($payload) > 0) {
             $time = time() + $this->exp;
