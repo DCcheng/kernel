@@ -62,6 +62,7 @@ class Token
      */
     private $file = "";
 
+    public $path = __DIR__ . "/temp/Token";
     /**
      *
      */
@@ -77,11 +78,14 @@ class Token
      */
     private function createToken($payload)
     {
+        if(!is_dir($this->path)){
+            mkdir($this->path,777,true);
+        }
         if (is_array($payload) && count($payload) > 0) {
             $time = time() + $this->exp;
             $payload = json_encode(array_merge($payload, array("exp" => $time)));
             $token = $this->getSign(base64_encode($payload));
-            $this->file = __DIR__ . "/temp/Token/" . $token;
+            $this->file = $this->path . "/" . $token;
             file_put_contents($this->file, $payload);
             return array($token, $time);
         } else {
@@ -105,7 +109,7 @@ class Token
             }
             $token = isset($_GET[$this->param]) ? $_GET[$this->param] : $_POST[$this->param];
         }
-        $this->file = __DIR__ . "/temp/Token/" . $token;
+        $this->file = $this->path . "/" . $token;
         if (file_exists($this->file) && $token != "") {
             $data = json_decode(file_get_contents($this->file), true);
             if ($data["exp"] > time()) {
@@ -162,14 +166,12 @@ class Token
      */
     public function cleanExpireToken()
     {
-        $path = __DIR__ . "/temp/Token";
-        $pathObj = dir($path);
-
+        $pathObj = dir($this->path);
         while (($item = $pathObj->read()) != false) {
             if ($item == '.' || $item == '..' || $item == ".gitignore") {
                 continue;
             } else {
-                $file = $path . '/' . $item;
+                $file = $this->path . '/' . $item;
                 $times = time() - filemtime($file);
                 if ($times > $this->exp) {
                     unlink($file);
