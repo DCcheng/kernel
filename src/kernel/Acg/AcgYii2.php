@@ -17,6 +17,7 @@ use Exception;
 
 class AcgYii2 implements AcgInterface
 {
+    public $prefix;
     public $table;
     public $modelNamespace = "common\\models";
     public $controllerNamespace = "api\\controllers";
@@ -27,6 +28,9 @@ class AcgYii2 implements AcgInterface
     public function run($config)
     {
         try {
+            if(isset($config["Prefix"])){
+                $this->prefix = $config["Prefix"];
+            }
             $this->table = $config["Table"];
             if (isset($config["modelNamespace"])) {
                 $this->modelNamespace = $config["modelNamespace"];

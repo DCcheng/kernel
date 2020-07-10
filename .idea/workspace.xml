@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="94103d3a-9ef7-43b7-89fc-04012b0d0ef5" name="Default Changelist" comment="">
+    <list default="true" id="94103d3a-9ef7-43b7-89fc-04012b0d0ef5" name="Default Changelist" comment="0.2.5">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kernel/Support/Token.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kernel/Support/Token.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kernel/Acg/AcgLaravel5.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kernel/Acg/AcgLaravel5.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kernel/Acg/AcgYii2.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/kernel/Acg/AcgYii2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kernel/Acg/laravel5/Controller.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/src/kernel/Acg/laravel5/Controller.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kernel/Acg/laravel5/Model.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/src/kernel/Acg/laravel5/Model.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kernel/Acg/laravel5/Request.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/src/kernel/Acg/laravel5/Request.tpl" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,46 +21,12 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/kernel/Support/Upload.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3439">
-              <caret line="182" column="56" selection-start-line="182" selection-start-column="56" selection-end-line="182" selection-end-column="56" />
-              <folding>
-                <element signature="e#35#49#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/example/test.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="817">
-              <caret line="43" selection-start-line="43" selection-end-line="49" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/kernel/Support/File.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1995">
-              <caret line="132" column="34" selection-start-line="132" selection-start-column="34" selection-end-line="132" selection-end-column="34" />
-              <folding>
-                <element signature="e#550#1350#0#PHP" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/kernel/Acg/yii2/Controller.tpl">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/kernel/Acg/laravel5/Controller.tpl">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -67,8 +37,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/kernel/Acg/AcgLaravel5.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+            <state relative-caret-position="99">
+              <caret line="19" column="19" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/kernel/Acg/AcgYii2.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="57">
+              <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/kernel/Acg/AcgFactory.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -82,11 +70,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/kernel/Support/Token.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="81" column="34" selection-start-line="81" selection-start-column="34" selection-end-line="81" selection-end-column="34" />
+            <state relative-caret-position="19">
+              <caret line="64" column="41" selection-start-line="64" selection-start-column="36" selection-end-line="64" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/kernel/Acg/laravel5/Request.tpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="339">
+              <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/kernel/Acg/laravel5/Model.tpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-95">
+              <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -138,10 +144,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/kernel/Support/Response.php" />
-        <option value="$PROJECT_DIR$/src/kernel/Ftoken/Token.php" />
-        <option value="$PROJECT_DIR$/src/kernel/Pdf/PdfConverterForLibreOffice.php" />
-        <option value="$PROJECT_DIR$/src/kernel/Support/QRcode.php" />
         <option value="$PROJECT_DIR$/src/kernel/Support/Maps.php" />
         <option value="$PROJECT_DIR$/src/kernel/Support/temp/.gitignore" />
         <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/Token.php" />
@@ -150,7 +152,6 @@
         <option value="$PROJECT_DIR$/src/kernel/Support/Validation.php" />
         <option value="$PROJECT_DIR$/src/kernel/Support/StringConvert.php" />
         <option value="$PROJECT_DIR$/src/kernel/Support/Time.php" />
-        <option value="$PROJECT_DIR$/src/kernel/Acg/laravel5/Controller.tpl" />
         <option value="$PROJECT_DIR$/src/kernel/Support/String.php" />
         <option value="$PROJECT_DIR$/src/kernel/Support/Str.php" />
         <option value="$PROJECT_DIR$/src/kernel/Video/Video.php" />
@@ -189,6 +190,11 @@
         <option value="$PROJECT_DIR$/src/kernel/Support/File.php" />
         <option value="$PROJECT_DIR$/src/kernel/Support/Upload.php" />
         <option value="$PROJECT_DIR$/src/kernel/Support/Token.php" />
+        <option value="$PROJECT_DIR$/src/kernel/Acg/laravel5/Request.tpl" />
+        <option value="$PROJECT_DIR$/src/kernel/Acg/laravel5/Model.tpl" />
+        <option value="$PROJECT_DIR$/src/kernel/Acg/laravel5/Controller.tpl" />
+        <option value="$PROJECT_DIR$/src/kernel/Acg/AcgLaravel5.php" />
+        <option value="$PROJECT_DIR$/src/kernel/Acg/AcgYii2.php" />
       </list>
     </option>
   </component>
@@ -213,6 +219,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -236,13 +243,27 @@
               <item name="kernel" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="kernel" type="462c0819:PsiDirectoryNode" />
+              <item name="Acg" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kernel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kernel" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="kernel" type="462c0819:PsiDirectoryNode" />
+              <item name="Acg" type="462c0819:PsiDirectoryNode" />
+              <item name="laravel5" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kernel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kernel" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="kernel" type="462c0819:PsiDirectoryNode" />
               <item name="Support" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -344,14 +365,8 @@
       <workItem from="1576543181602" duration="19422000" />
       <workItem from="1576629407346" duration="15518000" />
       <workItem from="1576716501420" duration="878000" />
-      <workItem from="1586917570453" duration="870000" />
-    </task>
-    <task id="LOCAL-00004" summary="V0.1.1">
-      <created>1558930000073</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1558930000073</updated>
+      <workItem from="1586917570453" duration="960000" />
+      <workItem from="1594342221543" duration="884000" />
     </task>
     <task id="LOCAL-00005" summary="V0.1.1">
       <created>1558930194021</created>
@@ -689,17 +704,24 @@
       <option name="project" value="LOCAL" />
       <updated>1586917836563</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="0.2.4">
+      <created>1586918962618</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1586918962618</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="191019000" />
+    <option name="totallyTimeSpent" value="191993000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25718608" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26096824" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -762,16 +784,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="0.2.4" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/kernel/Command/temp/d9a79840b9b74d2c579392afcc277abd.txt" />
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-3/backup.sh" />
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-3/.env" />
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10488">
-          <caret line="552" column="48" selection-start-line="552" selection-start-column="17" selection-end-line="552" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Desktop/TEST.sql" />
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
@@ -1025,25 +1037,8 @@
     <entry file="file://$PROJECT_DIR$/src/kernel/Acg/yii2/Controller.tpl">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/kernel/Acg/laravel5/Controller.tpl">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/kernel/Acg/yii2/Model.tpl">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/upload.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" column="41" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/kernel/Acg/AcgLaravel5.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
@@ -1052,10 +1047,59 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/example/upload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="19" column="41" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/kernel/Support/Token.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="81" column="34" selection-start-line="81" selection-start-column="34" selection-end-line="81" selection-end-column="34" />
+        <state relative-caret-position="19">
+          <caret line="64" column="41" selection-start-line="64" selection-start-column="36" selection-end-line="64" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kernel/Acg/laravel5/Request.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kernel/Acg/laravel5/Model.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-95">
+          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kernel/Acg/laravel5/Controller.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kernel/Acg/AcgFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kernel/Acg/AcgLaravel5.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="19" column="19" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kernel/Acg/AcgYii2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
         </state>
       </provider>
     </entry>

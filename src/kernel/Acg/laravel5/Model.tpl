@@ -9,10 +9,7 @@
 namespace {{Namespace}};
 
 use App\Api\Requests\ListRequest;
-use App\Api\Utils\Constant;
-use App\Api\Utils\Response;
 use App\Models\Model;
-use Illuminate\Http\Exceptions\HttpResponseException;
 
 class {{className}} extends Model
 {

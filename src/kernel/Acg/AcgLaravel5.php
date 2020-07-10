@@ -17,6 +17,7 @@ use Exception;
 
 class AcgLaravel5 implements AcgInterface
 {
+    public $prefix;
     public $table;
     public $modelNamespace = "App\\Models";
     public $requestNamespace = "App\\Http\\Requests";
@@ -28,6 +29,9 @@ class AcgLaravel5 implements AcgInterface
     public function run($config)
     {
         try {
+            if(isset($config["Prefix"])){
+                $this->prefix = $config["Prefix"];
+            }
             $this->table = $config["Table"];
             if (isset($config["requestNamespace"])) {
                 $this->requestNamespace = $config["requestNamespace"];
@@ -84,7 +88,7 @@ class AcgLaravel5 implements AcgInterface
     public function setRequest()
     {
         $this->setTpl($this->requestNamespace,$this->requestName,"Request.tpl",function($str){
-            $columns = DB::select("SHOW FULL COLUMNS FROM ems_$this->table");
+            $columns = DB::select("SHOW FULL COLUMNS FROM $this->prefix.$this->table");
             $rules = [];
             $attributes = [];
             foreach ($columns as $column) {

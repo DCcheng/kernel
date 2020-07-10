@@ -23,7 +23,12 @@ class {{className}} extends BaseRequest
         return [{{rules}}];
     }
 
-    public function attributes()
+    public function attributes_zh()
+    {
+        return [{{attributes}}];
+    }
+
+    public function attributes_en()
     {
         return [{{attributes}}];
     }
