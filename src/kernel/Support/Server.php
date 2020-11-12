@@ -2,6 +2,7 @@
 
 
 namespace Kernel\Support;
+
 use Kernel\Kernel;
 use Kernel\Support\File;
 use Kernel\Command\Command;
@@ -11,11 +12,13 @@ class Server
 {
     public $file;
     public $command;
-    public function __construct(File $file,Command $command)
+
+    public function __construct(File $file, Command $command)
     {
         $this->file = $file;
         $this->command = $command;
     }
+
     /**
      * @param string $name
      * @return array
@@ -28,15 +31,15 @@ class Server
             $this->command->addCommand([
                 "cd /usr/sbin&&./ifconfig |grep $name -A 3 | awk '{print $2\"@\"$4\"@\"$6}'"
             ])->execute(false, "/usr/sbin/", $info);
-            list($ip,$netmask,$broadcast) = explode("@",$info[1]);
-            list($mac) = explode("@",$info[3]);
+            list($ip, $netmask, $broadcast) = explode("@", $info[1]);
+            list($mac) = explode("@", $info[3]);
             $regex_ip = '/((25[0-5]|2[0-4]\d|((1\d{2})|([1-9]?\d)))\.){3}(25[0-5]|2[0-4]\d|((1\d{2})|([1-9]?\d)))/';
             $regex_mac = '/([A-Fa-f\d]{2}(:|-)){5}[A-Fa-f\d]{2}/';
-            if(!preg_match($regex_ip,$ip) || !preg_match($regex_ip,$netmask) || !preg_match($regex_ip,$broadcast) || !preg_match($regex_mac,$mac)) {
+            if (!preg_match($regex_ip, $ip) || !preg_match($regex_ip, $netmask) || !preg_match($regex_ip, $broadcast) || !preg_match($regex_mac, $mac)) {
                 throw new Exception("无法获取服务器网络信息");
             }
             return [$ip, $netmask, $broadcast, $mac];
-        }catch (Exception $exception){
+        } catch (Exception $exception) {
             throw new Exception("无法获取服务器网络信息");
         }
     }
@@ -70,7 +73,8 @@ class Server
         return $uuid;
     }
 
-    public function getBootUUid(){
+    public function getBootUUid()
+    {
         $uuid = "";
         $info = [];
         Kernel::command()->addCommand([
@@ -156,10 +160,59 @@ class Server
             $Input = (int)$I[1] - (int)$I[0];
             $Output = (int)$O[1] - (int)$O[0];
         }
-        list($data["Input"]["value"],$data["Input"]["unit"]) = $this->file->formatBytes($Input);
-        list($data["Output"]["value"],$data["Output"]["unit"]) = $this->file->formatBytes($Output);
+        list($data["Input"]["value"], $data["Input"]["unit"]) = $this->file->formatBytes($Input);
+        list($data["Output"]["value"], $data["Output"]["unit"]) = $this->file->formatBytes($Output);
         $data["Input"]["unit"] .= "/s";
         $data["Output"]["unit"] .= "/s";
         return $data;
+    }
+
+    //重启服务器
+    public function reboot($request)
+    {
+        Kernel::command()->addCommand([
+            "sudo reboot"
+        ])->execute(false, "/usr/bin");
+    }
+
+    //关闭服务器
+    public function shutdown($request)
+    {
+        Kernel::command()->addCommand([
+            "sudo poweroff -f"
+        ])->execute(false, "/usr/bin");
+    }
+
+//    //设置服务器IP
+//    public function setIp($ip, $gateway, $netmask, $dns = "8.8.8.8")
+//    {
+//        Kernel::command()->addCommand([
+//            "sudo php /home/wwwroot/Paperless/Api/artisan system $ip $gateway $netmask $dns",
+//            "sudo service network restart"
+//        ])->execute(false, "/usr/bin");
+//    }
+
+    //设置服务器时间
+    //格式 2020-11-12 08:35:00
+    public function setTime($date)
+    {
+        Kernel::command()->addCommand([
+            "sudo -u root date -s \"" . $date . "\""
+        ])->execute(false, "/usr/sbin");
+        Kernel::command()->addCommand([
+            "sudo -u root clock -w"
+        ])->execute(false, "/usr/sbin");
+    }
+
+    //同步服务器时间
+    public function syncTime($host)
+    {
+        $arr = [];
+        Kernel::command()->addCommand([
+            "sudo -u root ntpdate " . $host
+        ])->execute(false, "/usr/sbin", $arr);
+        Kernel::command()->addCommand([
+            "sudo -u root clock -w"
+        ])->execute(false, "/usr/sbin");
     }
 }
