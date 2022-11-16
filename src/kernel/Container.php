@@ -73,7 +73,6 @@ class Container {
         if($concrete instanceof Closure) {
             return $concrete($this);
         }
-
         $reflector = new ReflectionClass($concrete);
         if(!$reflector->isInstantiable()) {
             echo $message = "Target [$concrete] is not instantiable";
@@ -93,7 +92,7 @@ class Container {
     protected function getDependencies($parameters) {
         $dependencies = [];
         foreach($parameters as $parameter) {
-            $dependency = $parameter->getClass();
+            $dependency = $parameter->getType();
             if(is_null($dependency)) {
                 $dependencies[] = NULL;
             } else {
@@ -105,6 +104,6 @@ class Container {
     }
 
     protected function resolveClass(ReflectionParameter $parameter) {
-        return $this->make($parameter->getClass()->name);
+        return $this->make($parameter->getName());
     }
 }

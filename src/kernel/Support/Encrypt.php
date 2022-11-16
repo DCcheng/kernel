@@ -33,12 +33,12 @@ class Encrypt
             if ($x == $l) {
                 $x = 0;
             }
-            $char .= $key{$x};
+            $char .= $key[$x];
             $x++;
         }
         $str = '';
         for ($i = 0; $i < $len; $i++) {
-            $str .= chr(ord($data{$i}) + (ord($char{$i})) % 256);
+            $str .= chr(ord($data[$i]) + (ord($char[$i])) % 256);
         }
         return base64_encode($str);
     }

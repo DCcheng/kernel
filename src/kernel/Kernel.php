@@ -104,6 +104,7 @@ class Kernel
     public function setClass()
     {
         return [
+            "file" => \Kernel\Support\File::class,
             "token" => \Kernel\Support\Token::class,
             "validation" => \Kernel\Support\Validation::class,
             "curl" => \Kernel\Support\Curl::class,
@@ -119,7 +120,6 @@ class Kernel
             "encrypt"=>\Kernel\Support\Encrypt::class,
             "array" => \Kernel\Support\ArrayColumn::class,
             "ip" => \Kernel\Support\Ip::class,
-            "file" => \Kernel\Support\File::class,
             "envFile" => \Kernel\Support\EnvFile::class,
             "upload" => \Kernel\Support\Upload::class,
         ];
