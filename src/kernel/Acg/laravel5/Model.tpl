@@ -21,10 +21,12 @@ class {{className}} extends Model
         return $model;
     }
 
-    public static function getParams(ListRequest $request,$size = 15)
+    public static function getParams(ListRequest $request, $baseTableNameArr = [], $size = 15)
     {
-        list(, $params, $arr, $page, $size) = parent::getParams($request,$size);
+        list(, $arr, $page, $size) = parent::getParams($request, $baseTableNameArr, $size);
+        list($a) = $baseTableNameArr;
         $condition = [];
+        //$condition[] = [$a . ".delete_time", 0];
 
         //$keyword = $request->get('keyword', "");
         //if ($keyword != "") {
@@ -33,13 +35,16 @@ class {{className}} extends Model
         //    $params[] = trim($keyword) . "%";
         //}
 
+//        $mid = $request->get('mid', "");
+//        if ($mid != "") {
+//            $condition[] = [$a . ".mid", $mid];
+//        }
+
         //$end_time = $request->get('end_time', "");
         //if ($end_time != "") {
-        //    $params[] = strtotime($end_time);
-        //   $condition[] = "a.create_time <= ?";
+        //   $condition[] = [$a . ".create_time","<=", strtotime($end_time)];
         //}
 
-        $condition = implode(" and ", $condition);
-        return array($condition, $params, $arr, $page, $size);
+        return array($condition, $arr, $page, $size);
     }
 }

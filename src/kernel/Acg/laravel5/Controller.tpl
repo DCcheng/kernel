@@ -30,16 +30,21 @@ class {{className}} extends Controller
     public function index(ListRequest $request)
     {
         try{
-            list($condition, $params, $arr, $page, $size) = {{modelName}}::getParams($request);
-
-            $orderRaw = "id desc";
-            $model = DB::table(DB::raw({{modelName}}::getTableName()))->selectRaw("*");
-            if ($condition != "") {
-                $model->whereRaw($condition, $params);
+            $baseTableNameArr = [{{modelName}}::getBaseTableName()];
+            list(${{modelName}}TableName) = $baseTableNameArr;
+            list($condition, $arr, $page, $size) = {{modelName}}::getParams($request,$baseTableNameArr);
+            $orderByArr = {{modelName}}::setOrderByField($baseTableNameArr);
+            $model = DB::table(${{modelName}}TableName)->select(${{modelName}}TableName."*");
+            if (count($condition) > 0) {
+                $model->where($condition);
             }
             $arr["total"] = $model->count();
             list(, $arr['totalPage']) = Pager::create($arr["total"], $size);
-            $list = $model->forPage($page, $size)->orderByRaw($orderRaw)->get();
+            $model->forPage($page, $size);
+            foreach ($orderByArr as $key => $value) {
+            $model->orderBy($value["column"], $value["direction"]);
+            }
+            $list = $model->get();
             foreach ($list as $key => $value) {
                 $value = (array)$value;
                 $list[$key] = $value;
