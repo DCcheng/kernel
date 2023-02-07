@@ -30,10 +30,15 @@ class {{className}} extends Model
 
         //$keyword = $request->get('keyword', "");
         //if ($keyword != "") {
-        //    $condition[] = "(a.name like ? or a.identify like ?)";
-        //    $params[] = trim($keyword) . "%";
-        //    $params[] = trim($keyword) . "%";
+        //$condition[] = [function ($query) use ($a, $b,$keyword) {
+        //    $keyword = trim($keyword) . "%"
+        //    $query->where($a . ".name", "like",$keyword)->orWhere($a . ".identify", "like",$keyword);
+        //}];
         //}
+        $condition[] = [function ($query) use ($a, $b,$keyword) {
+            $keyword = trim($keyword) . "%"
+            $query->where($a . ".name", "like",$keyword)->orWhere($a . ".identify", "like",$keyword);
+        }];
 
 //        $mid = $request->get('mid', "");
 //        if ($mid != "") {
