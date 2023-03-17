@@ -57,8 +57,8 @@ class {{className}} extends Model
     public static function setOrderField($field = "", $baseTableNameArr = [], $order = "desc")
     {
         list($a) = $baseTableNameArr;
-        if (is_null($a))) {
-            if ($field == "")) {
+        if (is_null($a)){
+            if ($field == ""){
                 return [
                     ["column" => "id", "direction" => $order]
                 ];
@@ -68,7 +68,7 @@ class {{className}} extends Model
                 ];
             }
         }else{
-            if ($field == "")) {
+            if ($field == ""){
                 return [
                     ["column" => $a . ".id", "direction" => $order]
                 ];
