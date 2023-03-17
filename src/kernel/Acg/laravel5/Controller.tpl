@@ -67,7 +67,7 @@ class {{className}} extends Controller
             $id = $request->get("id");
             $model = {{modelName}}::find($id);
             if($model){
-                $data = (array)$model["attributes"];
+                $data = $model->getAttributes();
                 return Response::success(["data"=>$data]);
             }else{
                 return Response::fail(trans("message.data.dataException"));

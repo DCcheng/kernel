@@ -49,6 +49,11 @@ class {{className}} extends Model
         return array($condition, $arr, $page, $size);
     }
 
+    public static function deleteDataForIds($field, $ids = [])
+    {
+        self::whereIn($field, $ids)->delete();
+    }
+
     public static function setOrderField($field = "", $baseTableNameArr = [], $order = "desc")
     {
         list($a) = $baseTableNameArr;
