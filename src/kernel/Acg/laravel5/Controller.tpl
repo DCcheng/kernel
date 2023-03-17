@@ -34,7 +34,7 @@ class {{className}} extends Controller
             list(${{modelName}}TableName) = $baseTableNameArr;
             list($condition, $arr, $page, $size) = {{modelName}}::getParams($request,$baseTableNameArr);
             $orderByArr = {{modelName}}::setOrderByField($baseTableNameArr);
-            $model = DB::table(${{modelName}}TableName)->select(${{modelName}}TableName."*");
+            $model = DB::table(${{modelName}}TableName)->select(${{modelName}}TableName.".*");
             if (count($condition) > 0) {
                 $model->where($condition);
             }
