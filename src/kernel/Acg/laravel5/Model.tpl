@@ -48,4 +48,18 @@ class {{className}} extends Model
 
         return array($condition, $arr, $page, $size);
     }
+
+    public static function setOrderField($field = "", $baseTableNameArr = [], $order = "desc")
+    {
+        list($a) = $baseTableNameArr;
+        if ($field == "") {
+            return [
+                ["column" => $a . ".id", "direction" => $order]
+            ];
+        } else {
+            return [
+                ["column" => $a . "." . $field, "direction" => $order]
+            ];
+        }
+    }
 }
