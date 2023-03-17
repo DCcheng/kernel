@@ -52,14 +52,26 @@ class {{className}} extends Model
     public static function setOrderField($field = "", $baseTableNameArr = [], $order = "desc")
     {
         list($a) = $baseTableNameArr;
-        if ($field == "") {
-            return [
-                ["column" => $a . ".id", "direction" => $order]
-            ];
-        } else {
-            return [
-                ["column" => $a . "." . $field, "direction" => $order]
-            ];
+        if (is_null($a))) {
+            if ($field == "")) {
+                return [
+                    ["column" => "id", "direction" => $order]
+                ];
+            } else {
+                return [
+                    ["column" => $field, "direction" => $order]
+                ];
+            }
+        }else{
+            if ($field == "")) {
+                return [
+                    ["column" => $a . ".id", "direction" => $order]
+                ];
+            } else {
+                return [
+                    ["column" => $a . "." . $field, "direction" => $order]
+                ];
+            }
         }
     }
 }
